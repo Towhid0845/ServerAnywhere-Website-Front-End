@@ -1,0 +1,250 @@
+/* common css start */
+* {
+	margin: 0;
+	padding: 0;
+	outline: 0;
+}
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+ul,
+ol {
+	list-style: none;
+}
+img {
+	vertical-align: middle;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Prompt", sans-serif;
+	letter-spacing: 0.5px;
+}
+:root {
+	--main-bg: #440a67;
+	--sub-bg: #1c2142;
+}
+.title {
+	font-family: "Orbitron", sans-serif;
+	font-size: 30px;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #fff;
+}
+/* common css end */
+
+/* menu css start */
+
+#header {
+	background-color: var(--main-bg);
+	padding: 12px 0;
+}
+.container {
+	max-width: 1300px !important;
+}
+.main-menu > ul > li {
+	position: relative;
+	float: left;
+	text-transform: uppercase;
+}
+.menu-item a,
+.control-panel a {
+	color: #fff;
+}
+.main-menu > ul > li > ul,
+.control-panel > ul > li > ul {
+	position: absolute;
+	visibility: hidden;
+	background-color: var(--sub-bg);
+	width: max-content;
+	color: #a66cff;
+	border-radius: 15px;
+	opacity: 0;
+	transition: 0.8s;
+	-webkit-transition: 0.8s;
+	transform: translatex(-20%) scaleY(1) !important;
+	z-index: 1;
+}
+.minecraft ul {
+	width: 157px !important;
+}
+.main-menu ul li:hover ul,
+.control-panel ul li:hover ul {
+	visibility: visible;
+	opacity: 1;
+}
+
+.sub-menu li:hover,
+.sub-control li:hover {
+	background-color: #473e80;
+	border-radius: 5px;
+}
+
+.sub-menu-icon {
+	float: left;
+	padding: 3px 10px;
+}
+.menu-arrow {
+	color: #fff;
+}
+.menu li {
+	font-size: 14px;
+	font-weight: 600;
+}
+.sub-menu li:not(:last-child),
+.sub-control li:not(:last-child) {
+	border-bottom: 1px solid #b0b0b080;
+}
+.sub-menu li,
+.sub-control li {
+	text-transform: uppercase;
+	font-size: 13px;
+	font-weight: 300;
+	padding: 8px 15px;
+}
+
+/* menu css end */
+
+/* control css start */
+
+.control-panel {
+	background-color: var(--sub-bg);
+	border-radius: 20px;
+	text-align: center;
+	padding: 10px 0 15px;
+}
+.control-panel-icon {
+	font-size: 20px;
+	color: #fff;
+}
+.control-panel-text {
+	font-size: 7px;
+	font-weight: 600;
+	text-transform: uppercase;
+	color: #fff;
+	padding-top: 5px;
+}
+.control-panel .control-panel-item {
+	float: left;
+}
+.control-panel > ul > li {
+	position: relative;
+}
+.control-panel > ul > li > ul {
+	transform: translatex(-40%) scaleY(1) !important;
+	top: 62px;
+}
+
+.control-panel-item:nth-child(2)::after,
+.control-panel-item:nth-child(2)::before {
+	background-color: #545454;
+	content: "";
+	height: 32px;
+	position: absolute;
+	top: 58%;
+	transform: translateY(-50%);
+	width: 2px;
+}
+.control-panel-item:nth-child(2)::before {
+	left: 0;
+}
+.control-panel-item:nth-child(2)::after {
+	right: 0;
+}
+.control-panel-item:nth-child(3)::after {
+	background-color: #545454;
+	content: "";
+	height: 32px;
+	position: absolute;
+	right: 0;
+	top: 58%;
+	transform: translateY(-50%);
+	width: 2px;
+}
+
+/* control css end */
+
+/* catagory css start */
+#catagory {
+	background-color: var(--main-bg);
+}
+.catagory-width {
+	width: 1180px !important;
+}
+.zoom img {
+	border: 4px solid #9c9efe;
+	border-radius: 15px;
+	margin-bottom: 15px;
+	transition: transform 0.5s;
+}
+.zoom:hover img {
+	-ms-transform: scale(1.5);
+	-webkit-transform: scale(1.5);
+	transform: scale(1.1);
+}
+.zoom p {
+	text-transform: uppercase;
+}
+.catagory-item p {
+	color: #fff;
+	font-weight: 300;
+	font-size: 18px;
+}
+
+/* catagory css end */
+
+/* footer css start */
+#footer {
+	background-color: var(--main-bg);
+}
+.payment {
+	border-radius: 8px;
+	color: #fff;
+}
+.payment img {
+	height: 35px;
+}
+
+.footer-title {
+	border-bottom: 1px solid #b0b0b080;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 700;
+	padding: 5px 0 14px;
+	margin-bottom: 20px;
+}
+.footer-item li {
+	padding-bottom: 25px;
+	font-size: 14px;
+	font-weight: 300;
+}
+.footer-item li a {
+	color: #fff;
+}
+.footer-social li a {
+	font-size: 32px;
+	color: #fff;
+}
+.footer-social li {
+	padding-bottom: 10px;
+}
+.copyright footer {
+	font-weight: 200;
+	font-size: 14px;
+	color: #bb99bf !important;
+}
+/* footer css end */
