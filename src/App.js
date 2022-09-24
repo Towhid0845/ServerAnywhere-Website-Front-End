@@ -1,14 +1,19 @@
 import React from "react";
-import Header from "./components/common/header";
-import Catagory from "./components/home/catagory";
-import Footer from "./components/common/footer";
+import Home from "./components/home";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import VPS from "./components/vps";
+import Dedicated from "./components/dedicated";
 
 function App() {
 	return (
 		<>
-			<Header />
-			<Catagory />
-			<Footer />
+			<Router>
+				<Routes>
+					<Route exact path="/" element={<Home />}></Route>
+					<Route exact path="/vps" element={<VPS />}></Route>
+					<Route exact path="/dedicated" element={<Dedicated />}></Route>
+				</Routes>
+			</Router>
 		</>
 	);
 }

@@ -34,16 +34,61 @@ body {
 	font-family: "Prompt", sans-serif;
 	letter-spacing: 0.5px;
 }
+.common-width {
+	width: 1190px !important;
+}
 :root {
-	--main-bg: #440a67;
+	/* --main-bg: #440a67; */
+	--main-bg: #1d002f;
 	--sub-bg: #1c2142;
 }
-.title {
+#catagory,
+#banner,
+#about,
+#slider {
+	background-color: var(--main-bg);
+	padding: 120px 0;
+}
+#pricing,
+#compair,
+#support {
+	background-color: var(--sub-bg);
+	padding: 120px 0;
+}
+
+.big-title {
+	font-family: "Orbitron", sans-serif;
+	font-size: 48px;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #fff;
+}
+.small-title {
+	font-family: "Orbitron", sans-serif;
+	font-size: 24px;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #fff;
+}
+.section-title {
 	font-family: "Orbitron", sans-serif;
 	font-size: 30px;
 	font-weight: 700;
 	text-transform: uppercase;
 	color: #fff;
+}
+.section-text p {
+	font-weight: 300;
+	font-size: 14px;
+	text-align: justify;
+	/* color: #b4aee8; */
+	color: #9293b5;
+}
+.section-text-title {
+	font-weight: 300;
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: uppercase;
 }
 /* common css end */
 
@@ -53,7 +98,7 @@ body {
 	background-color: var(--main-bg);
 	padding: 12px 0;
 }
-.container {
+.header-width {
 	max-width: 1300px !important;
 }
 .main-menu > ul > li {
@@ -116,11 +161,9 @@ body {
 	font-weight: 300;
 	padding: 8px 15px;
 }
-
 /* menu css end */
 
 /* control css start */
-
 .control-panel {
 	background-color: var(--sub-bg);
 	border-radius: 20px;
@@ -175,16 +218,9 @@ body {
 	transform: translateY(-50%);
 	width: 2px;
 }
-
 /* control css end */
 
 /* catagory css start */
-#catagory {
-	background-color: var(--main-bg);
-}
-.catagory-width {
-	width: 1180px !important;
-}
 .zoom img {
 	border: 4px solid #9c9efe;
 	border-radius: 15px;
@@ -204,7 +240,6 @@ body {
 	font-weight: 300;
 	font-size: 18px;
 }
-
 /* catagory css end */
 
 /* footer css start */
@@ -245,6 +280,96 @@ body {
 .copyright footer {
 	font-weight: 200;
 	font-size: 14px;
-	color: #bb99bf !important;
+	color: #9293b5;
 }
 /* footer css end */
+
+/* banner css start */
+
+/* banner css end */
+
+/* card css start */
+
+.card {
+	width: "275px";
+	background-color: var(--main-bg);
+	border-color: #b4aee8;
+	color: #ffe3fe;
+	text-align: center;
+	transition: all 0.3s ease-in-out;
+}
+.card:hover {
+	border-color: #b4aee8;
+	box-shadow: 0 0 20px #b4aee8;
+	transform: scale(1.08);
+	transition: all 0.3s ease-in-out;
+}
+.card-title {
+	font-family: "Orbitron", sans-serif;
+	font-size: 18px;
+	font-weight: 700;
+}
+.card-text {
+	font-size: 14px;
+	font-weight: 300;
+	color: #b4aee8;
+	padding: 5px 0;
+}
+.price span {
+	font-size: 31px;
+	font-weight: 500;
+	color: #ffe3fe;
+}
+.price {
+	color: #ffe3fe !important;
+	padding-top: 10px;
+}
+.btn {
+	background-color: rgb(72 61 169);
+	border: none;
+	padding-bottom: 10px;
+}
+.btn:hover {
+	background-color: #93329e;
+}
+/* card css end */
+
+/* compair css start */
+.css-10jyip1-MuiLinearProgress-root {
+	height: 25px !important;
+}
+.progress {
+	background-color: #d8d8d8;
+	border-radius: 20px;
+	position: relative;
+	/* margin: 15px 0; */
+	height: 30px;
+	/* width: 300px; */
+}
+
+.progress-done {
+	background: linear-gradient(to left, #f2709c, #ff9472);
+	box-shadow: 0 3px 3px -5px #f2709c, 0 2px 5px #f2709c;
+	border-radius: 20px;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 0;
+	opacity: 0;
+	transition: 1s ease 0.3s;
+}
+/* compair css end */
+
+/* slider css start */
+.screenshot {
+	width: 850px;
+}
+/* slider css end */
+/* support css start */
+.message {
+	font-size: 50px;
+	color: #a66cff;
+}
+/* support css end */

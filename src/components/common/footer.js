@@ -247,8 +247,8 @@ export default function Footer() {
 					</div>
 				</div>
 				<div className="row">
-					<div className="col text-center copyright">
-						<footer className="py-5 text-white">
+					<div className="col copyright">
+						<footer className="py-5 text-center">
 							Copyright 2022 &copy; ServerAnywhere.com. All rights reserved.
 						</footer>
 					</div>

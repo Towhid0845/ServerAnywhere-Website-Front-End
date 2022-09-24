@@ -9,7 +9,7 @@ import { BsInfoCircle } from "react-icons/bs";
 export default function Header() {
 	return (
 		<div id="header">
-			<div className="container">
+			<div className="container header-width">
 				<div className="row">
 					<div className="col-lg-2 pt-3">
 						<div className="header-logo">
@@ -69,7 +69,7 @@ export default function Header() {
 								</li>
 
 								<li className="menu-item ps-4">
-									<a href="/minecraft-servers" className="menu-link">
+									<a href="/" className="menu-link">
 										Dedicated
 									</a>
 									<span className="menu-arrow ps-2">
@@ -77,13 +77,13 @@ export default function Header() {
 									</span>
 									<ul className="sub-menu py-3 px-4">
 										<li className="sub-menu-item">
-											<a aria-current="page" href="/" className="py-1">
+											<a aria-current="page" href="/dedicated" className="py-1">
 												<div className="py-1">Dedicated Servers</div>
 											</a>
 										</li>
 
 										<li className="sub-menu-item">
-											<a aria-current="page" href="/" className="py-1">
+											<a aria-current="page" href="/vps" className="py-1">
 												<div className="py-1">VPS Servers</div>
 											</a>
 										</li>
@@ -242,6 +242,9 @@ export default function Header() {
 								</ul>
 							</li>
 						</ul>
+					</div>
+					<div className="path section-text text-start pt-5">
+						<p>Home / Selector</p>
 					</div>
 				</div>
 			</div>
