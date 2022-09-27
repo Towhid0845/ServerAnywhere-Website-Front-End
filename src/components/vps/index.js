@@ -5,11 +5,14 @@ import Header from "../common/header";
 import Banner from "../common/banner";
 // import Pricing from "../common/pricing";
 import About from "../common/about";
-import Compair from "../common/compare";
+// import Compair from "../common/compare";
 import Slider from "../common/slider";
 import Support from "../common/support";
 import BannerText from "./banner_text";
 import VPSPricing from "./vps_pricing";
+import VPSAbout from "./about";
+import VPSCompare from "./compare";
+import VPSSlider from "./slider";
 
 export default function VPS() {
 	return (
@@ -19,9 +22,13 @@ export default function VPS() {
 				<BannerText />
 			</Banner>
 			<VPSPricing />
-			<About />
-			<Compair />
-			<Slider />
+			<About>
+				<VPSAbout />
+			</About>
+			<VPSCompare />
+			<Slider>
+				<VPSSlider />
+			</Slider>
 			<Support />
 			<Catagory />
 			<Footer />

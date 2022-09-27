@@ -24,7 +24,7 @@ const Progress = ({ done }) => {
 	);
 };
 
-export default function Compair() {
+export default function VPSCompare() {
 	return (
 		<div id="compair">
 			<div className="container common-width">
@@ -40,7 +40,7 @@ export default function Compair() {
 									<Progress done="60" />
 								</div>
 							</div>
-							<div className="row">
+							<div className="row my-2">
 								<div className="col-5 text-white">CUSTOMIZATION</div>
 								<div className="col-1"></div>
 								<div className="col-6">
@@ -110,15 +110,15 @@ export default function Compair() {
 									<Progress done="60" />
 								</div>
 							</div>
-							<div className="row">
-								<div className="col-5 text-white">PERFORMANCE</div>
+							<div className="row my-2">
+								<div className="col-5 text-white">CUSTOMIZATION</div>
 								<div className="col-1"></div>
 								<div className="col-6">
 									<Progress done="80" />
 								</div>
 							</div>
 							<div className="row">
-								<div className="col-5 text-white">PERFORMANCE</div>
+								<div className="col-5 text-white">PRICE</div>
 								<div className="col-1"></div>
 								<div className="col-6">
 									<Progress done="30" />

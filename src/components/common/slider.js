@@ -1,10 +1,13 @@
 import React from "react";
-import Carousel from "react-bootstrap/Carousel";
+// import Carousel from "react-bootstrap/Carousel";
 
-export default function Slider() {
+export default function Slider(Props) {
 	return (
 		<div id="slider">
 			<div className="container common-width">
+				<div>{Props.children}</div>
+			</div>
+			{/* <div className="container common-width">
 				<div className="row">
 					<div className="section-title pb-3">Easy to manage</div>
 					<div className="section-text">
@@ -70,7 +73,7 @@ export default function Slider() {
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> */}
 		</div>
 	);
 }

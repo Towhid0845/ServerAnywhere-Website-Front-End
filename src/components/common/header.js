@@ -105,7 +105,7 @@ export default function Header() {
 										</li>
 
 										<li className="sub-menu-item">
-											<a aria-current="page" href="/" className="py-1">
+											<a aria-current="page" href="/web" className="py-1">
 												<div className="py-1">Web Hosting</div>
 											</a>
 										</li>
@@ -202,7 +202,7 @@ export default function Header() {
 								</ul>
 							</li>
 							<li className="control-panel-item px-4">
-								<a href="/">
+								<a href="/login">
 									<div className="control-panel-icon">
 										<RiUserShared2Line />
 									</div>

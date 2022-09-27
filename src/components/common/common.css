@@ -40,7 +40,8 @@ body {
 :root {
 	/* --main-bg: #440a67; */
 	--main-bg: #1d002f;
-	--sub-bg: #1c2142;
+	/* --sub-bg: #1c2142; */
+	--sub-bg: #0d1129;
 }
 #catagory,
 #banner,
@@ -51,7 +52,8 @@ body {
 }
 #pricing,
 #compair,
-#support {
+#support,
+#feature {
 	background-color: var(--sub-bg);
 	padding: 120px 0;
 }
@@ -77,7 +79,8 @@ body {
 	text-transform: uppercase;
 	color: #fff;
 }
-.section-text p {
+.section-text p,
+.section-text li {
 	font-weight: 300;
 	font-size: 14px;
 	text-align: justify;
@@ -330,7 +333,7 @@ body {
 	padding-bottom: 10px;
 }
 .btn:hover {
-	background-color: #93329e;
+	background-color: #a600b9;
 }
 /* card css end */
 
@@ -340,7 +343,7 @@ body {
 }
 .progress {
 	background-color: #d8d8d8;
-	border-radius: 20px;
+	border-radius: 10px;
 	position: relative;
 	/* margin: 15px 0; */
 	height: 30px;
@@ -350,7 +353,8 @@ body {
 .progress-done {
 	background: linear-gradient(to left, #f2709c, #ff9472);
 	box-shadow: 0 3px 3px -5px #f2709c, 0 2px 5px #f2709c;
-	border-radius: 20px;
+	/* background: #1b57c4; */
+	border-radius: 10px;
 	color: #fff;
 	display: flex;
 	align-items: center;
@@ -359,6 +363,9 @@ body {
 	width: 0;
 	opacity: 0;
 	transition: 1s ease 0.3s;
+}
+.pink {
+	background: #b739f2 !important;
 }
 /* compair css end */
 
