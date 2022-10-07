@@ -28,7 +28,7 @@ export default function DedicatedSlider() {
 				</div>
 			</div>
 			<div className="row justify-content-center pt-5">
-				<div className="col-9 text-center">
+				<div className="col-lg-9 col-sm-12 col-12 text-center">
 					<div className="screenshot">
 						<Carousel>
 							<Carousel.Item>

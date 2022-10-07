@@ -17,7 +17,7 @@ function VPSPricing() {
 	// console.log(apiData);
 	const arr = data.map((data, index) => {
 		return (
-			<div className="col-3 pb-5">
+			<div className="col-lg-3 col-md-4 col-sm-6 offset-sm-0 col-8 offset-2 pb-5">
 				<Card>
 					<Card.Body>
 						<Card.Title>{data.id}</Card.Title>
@@ -43,7 +43,7 @@ function VPSPricing() {
 
 	return (
 		<div id="pricing">
-			<div className="container common-width">
+			<div className="container">
 				<div className="row">
 					<div className="section-title pb-5">plans and pricing</div>
 				</div>

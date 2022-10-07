@@ -9,29 +9,74 @@ import { FaEye } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa";
 import { BsPersonLinesFill } from "react-icons/bs";
-import { FaPhoneAlt } from "react-icons/fa";
+// import { FaPhoneAlt } from "react-icons/fa";
 
-// import axios from "axios";
+import axios from "axios";
 // import swal from "sweetalert";
 // import { AdminContext } from "../../context/AdminContext";
 // import { useContext, useEffect, useState } from "react";
 
 const SignupPage = () => {
 	const [visiblePassword, setVisiblePassword] = useState(false);
-	const [user, setUser] = useState({
-		name: "",
-		email: "",
-		phone: "",
-		password: "",
-	});
-	let name, value;
-	const handleInputs = (e) => {
-		console.log(e);
-		name = e.target.name;
-		value = e.target.value;
+	// const [user, setUser] = useState({
+	// 	name: "",
+	// 	email: "",
+	// 	password: "",
+	// });
+	// let name, value;
+	// const handleInputs = (e) => {
+	// 	e.preventDefault();
+	// 	console.log(e);
+	// 	name = e.target.name;
+	// 	value = e.target.value;
 
-		setUser({ ...user, [name]: value });
+	// 	setUser({ ...user, [name]: value });
+	// };
+	// useEffect(() => {
+	// 	axios
+	// 		.post("https://glacial-refuge-00597.herokuapp.com/api/user/signup", {
+	// 			name: "any",
+	// 			email: "abc@gmail.com",
+	// 			password: "123456",
+	// 		})
+	// 		.then((res) => console.log(res.data));
+	// }, []);
+	const [name, setName] = useState("");
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	console.log({ name, email, password });
+
+	const handleName = (e) => {
+		setName(e.target.value);
 	};
+	const handleEmail = (e) => {
+		setEmail(e.target.value);
+	};
+	const handlePassword = (e) => {
+		setPassword(e.target.value);
+	};
+
+	const handleApi = (e) => {
+		e.preventDefault();
+		console.log({ name, email, password });
+		axios
+			.post("https://glacial-refuge-00597.herokuapp.com/api/user/signup", {
+				name: name,
+				email: email,
+				password: password,
+			})
+			.then((result) => {
+				console.log(result.data);
+				const { token } = result.data;
+				localStorage.setItem("token", token);
+				alert("sign up success");
+			})
+			.catch((error) => {
+				alert("service error");
+				console.log(error);
+			});
+	};
+
 	return (
 		<div className="handleTheLoginBody">
 			<div className="container mx-auto">
@@ -57,8 +102,10 @@ const SignupPage = () => {
 									style={{ textTransform: "lowercase" }}
 									className="inputBackground"
 									autoComplete="off"
-									value={user.name}
-									onChange={handleInputs}
+									// value={user.name}
+									// onChange={handleInputs}
+									value={name}
+									onChange={handleName}
 									placeholder="user name"
 									aria-label="Username"
 									type="text"
@@ -79,8 +126,10 @@ const SignupPage = () => {
 									style={{ textTransform: "lowercase" }}
 									className="inputBackground"
 									autoComplete="off"
-									value={user.email}
-									onChange={handleInputs}
+									// value={user.email}
+									// onChange={handleInputs}
+									value={email}
+									onChange={handleEmail}
 									placeholder="Email"
 									aria-label="Usermail"
 									type="email"
@@ -90,7 +139,7 @@ const SignupPage = () => {
 								/>
 							</InputGroup>
 							<br />
-							<InputGroup>
+							{/* <InputGroup>
 								<InputGroup.Text
 									id="basic-addon1"
 									className="bg-dark border-0 text-white"
@@ -106,12 +155,12 @@ const SignupPage = () => {
 									placeholder="phone number"
 									aria-label="Phonenumber"
 									type="number"
-									required
+									// required
 									aria-describedby="basic-addon1"
 									name="phone"
 								/>
 							</InputGroup>
-							<br />
+							<br /> */}
 							<InputGroup className="mb-3">
 								<InputGroup.Text className="bg-dark border-0 text-white">
 									<FaLock />
@@ -121,8 +170,10 @@ const SignupPage = () => {
 									className="inputBackground"
 									placeholder="password"
 									autoComplete="off"
-									value={user.password}
-									onChange={handleInputs}
+									// value={user.password}
+									// onChange={handleInputs}
+									value={password}
+									onChange={handlePassword}
 									type={visiblePassword ? "text" : "password"}
 									required
 									name="password"
@@ -149,6 +200,7 @@ const SignupPage = () => {
 								<Button
 									style={{ backgroundColor: "#f74545" }}
 									className="button-34 ps-5 pe-5 pt-2 pb-2"
+									onClick={handleApi}
 									type="submit"
 								>
 									Sign Up

@@ -4,7 +4,7 @@ import React from "react";
 export default function Banner(props) {
 	return (
 		<div id="banner" style={{ paddingTop: "60px" }}>
-			<div className="container common-width">{props.children}</div>
+			<div className="container">{props.children}</div>
 		</div>
 	);
 }

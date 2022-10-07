@@ -4,7 +4,7 @@ export default function AboutDedicated() {
 	return (
 		<div>
 			<div className="row">
-				<div className="col-lg-5">
+				<div className="col-lg-5 col-md-5 col-sm-12 col-12 order-md-1 order-sm-3 about_img">
 					<img
 						src="/images/vps/server.gif"
 						alt="error"
@@ -13,8 +13,8 @@ export default function AboutDedicated() {
 						className="pt-5"
 					/>
 				</div>
-				<div className="col-lg-1"></div>
-				<div className="col-lg-6">
+				<div className="col-lg-1 d-lg-block d-md-none order-md-2 order-sm-2"></div>
+				<div className="col-lg-6 col-md-7 col-sm-12 col-12 order-md-3 order-sm-1">
 					<div className="section-title pb-5">About dedicated servers</div>
 					<div className="section-text text-white">
 						<p>
@@ -30,17 +30,6 @@ export default function AboutDedicated() {
 							allocated for medium to big business sits, but if you&apos;re
 							ambitious, you can save time in the long run by signing up for a
 							dedicated server plan.
-						</p>
-						<p className="py-3">
-							Making that decision isn&apos;t easy though! You may find yourself
-							caught up in deciding which type of server hosting to go for - in
-							which case, allow our experts to help! We’re spent our fair share
-							of time online and are knowledgable about website hosting.{" "}
-						</p>
-						<p>
-							We will help you break down the differences between VPS and
-							dedicated server hosting. By the end of this guide, there should
-							be little doubt over which hosting plan to go for.
 						</p>
 					</div>
 				</div>

@@ -4,7 +4,7 @@ import React from "react";
 export default function Slider(Props) {
 	return (
 		<div id="slider">
-			<div className="container common-width">
+			<div className="container">
 				<div>{Props.children}</div>
 			</div>
 			{/* <div className="container common-width">

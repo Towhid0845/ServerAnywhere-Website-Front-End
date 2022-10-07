@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 export default function BannerText() {
 	return (
 		<div className="row">
-			<div className="col-lg-5">
+			<div className="col-lg-5 col-md-5 col-sm-12 col-12 order-md-1 order-sm-3 order-3">
 				<div className="big-title pb-4">VPS Servers</div>
 				<div className="section-text text-white">
 					<p>
@@ -25,8 +25,8 @@ export default function BannerText() {
 					</a>
 				</div>
 			</div>
-			<div className="col-lg-2"></div>
-			<div className="col-lg-5">
+			<div className="col-lg-2 col-md-1 order-md-2 order-sm-2 order-2"></div>
+			<div className="col-lg-5 col-md-6 col-sm-12 col-12 order-md-4 order-sm-1 order-1 banner_img">
 				<img
 					src="/images/vps/vps.gif"
 					alt="error"

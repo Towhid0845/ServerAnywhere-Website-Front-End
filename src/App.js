@@ -1,11 +1,11 @@
 import React from "react";
-import Home from "./components/home";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import VPS from "./components/vps";
-import Dedicated from "./components/dedicated";
-import Web from "./components/web";
+import Home from "./components/home/index";
+import VPS from "./components/vps/index";
+import Dedicated from "./components/dedicated/index";
+import Web from "./components/web/index";
 import Signin from "./components/auth/signin";
 import Signup from "./components/auth/signup";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import  from "./components/auth/signup/signup";
 
 function App() {

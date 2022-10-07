@@ -6,7 +6,7 @@ import { VscSettingsGear } from "react-icons/vsc";
 export default function Support() {
 	return (
 		<div id="support">
-			<div className="container common-width">
+			<div className="container">
 				<div className="row">
 					<div className="section-title pb-3">
 						Friendly and professional support
@@ -21,7 +21,7 @@ export default function Support() {
 					</div>
 				</div>
 				<div className="row pt-5">
-					<div className="col">
+					<div className="col-lg-4 col-md-4 col-sm-6 col-12 pb-3">
 						<div className="message pb-3">
 							<TbMessageDots />
 						</div>
@@ -34,8 +34,8 @@ export default function Support() {
 							</p>
 						</div>
 					</div>
-					<div className="col-1"></div>
-					<div className="col">
+					{/* <div className="col-1"></div> */}
+					<div className="col-lg-4 col-md-4 col-sm-6 col-12 pb-3">
 						<div className="message pb-3">
 							<BiUserPin />
 						</div>
@@ -48,8 +48,8 @@ export default function Support() {
 							</p>
 						</div>
 					</div>
-					<div className="col-1"></div>
-					<div className="col">
+					{/* <div className="col-1"></div> */}
+					<div className="col-lg-4 col-md-4 col-sm-6 col-12 pb-3">
 						<div className="message pb-3">
 							<VscSettingsGear />
 						</div>

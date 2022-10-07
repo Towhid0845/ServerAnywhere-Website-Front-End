@@ -4,7 +4,7 @@ import "../common/common.css";
 export default function Catagory() {
 	return (
 		<div id="catagory" style={{ paddingTop: "60px" }}>
-			<div className="container common-width">
+			<div className="container">
 				<div className="row pb-3">
 					<div className="col">
 						<div className="text-center">
@@ -16,7 +16,7 @@ export default function Catagory() {
 				</div>
 
 				<div className="row catagory-item">
-					<div className="col-lg-3 text-center">
+					<div className="col-lg-3 col-md-4 col-sm-6 col-6 text-center">
 						<a href="/" className="zoom">
 							<img
 								width="100%"
@@ -28,7 +28,7 @@ export default function Catagory() {
 							<p>VPS SERVERS</p>
 						</a>
 					</div>
-					<div className="col-lg-3 text-center">
+					<div className="col-lg-3 col-md-4 col-sm-6 col-6 text-center">
 						<a href="/" className="zoom">
 							<img
 								width="100%"
@@ -40,7 +40,7 @@ export default function Catagory() {
 							<p>Minecraft</p>
 						</a>
 					</div>
-					<div className="col-lg-3 text-center">
+					<div className="col-lg-3 col-md-4 col-sm-6 col-6 text-center">
 						<a href="/" className="zoom">
 							<img
 								width="100%"
@@ -52,7 +52,7 @@ export default function Catagory() {
 							<p>DEDICATED SERVERS</p>
 						</a>
 					</div>
-					<div className="col-lg-3 text-center">
+					<div className="col-lg-3 col-md-4 col-sm-6 col-6 text-center">
 						<a href="/" className="zoom">
 							<img
 								width="100%"
@@ -65,9 +65,9 @@ export default function Catagory() {
 						</a>
 					</div>
 
-					<div className="py-4"></div>
+					{/* <div className="py-4"></div> */}
 
-					<div className="col-lg-3 text-center">
+					<div className="col-lg-3 col-md-4 col-sm-6 col-6 text-center">
 						<a href="/" className="zoom">
 							<img
 								width="100%"
@@ -79,7 +79,7 @@ export default function Catagory() {
 							<p>Storage</p>
 						</a>
 					</div>
-					<div className="col-lg-3 text-center">
+					<div className="col-lg-3 col-md-4 col-sm-6 col-6 text-center">
 						<a href="/" className="zoom">
 							<img
 								width="100%"
@@ -91,7 +91,7 @@ export default function Catagory() {
 							<p>Mail server</p>
 						</a>
 					</div>
-					<div className="col-lg-3 text-center">
+					<div className="col-lg-3 col-md-4 col-sm-6 col-6 text-center">
 						<a href="/" className="zoom">
 							<img
 								width="100%"
@@ -103,7 +103,7 @@ export default function Catagory() {
 							<p>VOICE SERVERS</p>
 						</a>
 					</div>
-					<div className="col-lg-3 text-center">
+					<div className="col-lg-3 col-md-4 col-sm-6 col-6 text-center">
 						<a href="/" className="zoom">
 							<img
 								width="100%"
@@ -117,7 +117,7 @@ export default function Catagory() {
 					</div>
 				</div>
 			</div>
-			<div style={{ paddingTop: "120px" }}>
+			<div style={{ paddingTop: "60px" }}>
 				<hr style={{ color: "white", margin: "0" }} />
 			</div>
 		</div>

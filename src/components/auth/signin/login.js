@@ -9,7 +9,7 @@ import { FaEye } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa";
 
-// import axios from "axios";
+import axios from "axios";
 // import swal from "sweetalert";
 // import { AdminContext } from "../../context/AdminContext";
 // import { useContext, useEffect, useState } from "react";
@@ -18,16 +18,41 @@ const Login = () => {
 	const [visiblePassword, setVisiblePassword] = useState(false);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	// const [allEntry, setAllEntry] = useState([]);
 
-	const [allEntry, setAllEntry] = useState([]);
+	// const submitForm = (e) => {
+	// 	e.preventDefault();
 
-	const submitForm = (e) => {
+	// 	const newEntry = { email: email, password: password };
+
+	// 	setAllEntry([...allEntry, newEntry]);
+	// 	console.log(allEntry);
+	// };
+	const handleEmail = (e) => {
+		setEmail(e.target.value);
+	};
+	const handlePassword = (e) => {
+		setPassword(e.target.value);
+	};
+
+	const handleApi = (e) => {
 		e.preventDefault();
-
-		const newEntry = { email: email, password: password };
-
-		setAllEntry([...allEntry, newEntry]);
-		console.log(allEntry);
+		console.log({ email, password });
+		axios
+			.post("https://glacial-refuge-00597.herokuapp.com/api/user/signin", {
+				email: email,
+				password: password,
+			})
+			.then((result) => {
+				console.log(result.data);
+				const { token } = result.data;
+				localStorage.setItem("token", token);
+				alert("success");
+			})
+			.catch((error) => {
+				alert("service error");
+				console.log(error);
+			});
 	};
 
 	return (
@@ -44,7 +69,8 @@ const Login = () => {
 						</div>
 						<hr />
 						<div className="mt-4 pt-2">
-							<form onSubmit={submitForm}>
+							{/* <form onSubmit={submitForm}> */}
+							<form>
 								<InputGroup>
 									<InputGroup.Text
 										id="basic-addon1"
@@ -57,7 +83,8 @@ const Login = () => {
 										className="inputBackground"
 										autoComplete="off"
 										value={email}
-										onChange={(e) => setEmail(e.target.value)}
+										onChange={handleEmail}
+										// onChange={(e) => setEmail(e.target.value)}
 										placeholder="Email"
 										aria-label="Usermail"
 										type="email"
@@ -77,7 +104,8 @@ const Login = () => {
 										placeholder="password"
 										autoComplete="off"
 										value={password}
-										onChange={(e) => setPassword(e.target.value)}
+										onChange={handlePassword}
+										// onChange={(e) => setPassword(e.target.value)}
 										type={visiblePassword ? "text" : "password"}
 										required
 										name="password"
@@ -104,6 +132,7 @@ const Login = () => {
 									<Button
 										style={{ backgroundColor: "#f74545" }}
 										className="button-34 ps-5 pe-5 pt-2 pb-2"
+										onClick={handleApi}
 										type="submit"
 									>
 										Login
