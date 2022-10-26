@@ -232,34 +232,28 @@ export default function Footer() {
 									aria-expanded="false"
 									aria-controls="collapse2"
 								>
-									COMPANY
+									Services
 								</span>
 								<div class="collapse" id="collapse2">
 									<div class="card-body">
 										<ul className="footer-item">
 											<li>
-												<a href="/">about us</a>
+												<a href="/">Minecraft</a>
 											</li>
 											<li>
-												<a href="/">faq</a>
+												<a href="/">Game Server</a>
 											</li>
 											<li>
-												<a href="/">why serveranywhere</a>
+												<a href="/">Dedicated</a>
 											</li>
 											<li>
-												<a href="/">partners</a>
+												<a href="/">Web Server</a>
 											</li>
 											<li>
-												<a href="/">jobs</a>
+												<a href="/">Mobile Hosting</a>
 											</li>
 											<li>
-												<a href="/">blog</a>
-											</li>
-											<li>
-												<a href="/">privacy policy</a>
-											</li>
-											<li>
-												<a href="/">tos</a>
+												<a href="/">Discord BOT</a>
 											</li>
 										</ul>
 									</div>
@@ -273,34 +267,19 @@ export default function Footer() {
 									aria-expanded="false"
 									aria-controls="collapse3"
 								>
-									COMPANY
+									Customers
 								</span>
 								<div class="collapse" id="collapse3">
 									<div class="card-body">
 										<ul className="footer-item">
 											<li>
-												<a href="/">about us</a>
+												<a href="/">Client Area</a>
 											</li>
 											<li>
-												<a href="/">faq</a>
+												<a href="/">Knowledgebase</a>
 											</li>
 											<li>
-												<a href="/">why serveranywhere</a>
-											</li>
-											<li>
-												<a href="/">partners</a>
-											</li>
-											<li>
-												<a href="/">jobs</a>
-											</li>
-											<li>
-												<a href="/">blog</a>
-											</li>
-											<li>
-												<a href="/">privacy policy</a>
-											</li>
-											<li>
-												<a href="/">tos</a>
+												<a href="/">Get 24/7 Support</a>
 											</li>
 										</ul>
 									</div>

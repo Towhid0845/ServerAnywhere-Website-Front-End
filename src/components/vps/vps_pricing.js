@@ -7,7 +7,7 @@ function VPSPricing() {
 	const [data, setData] = useState([]);
 
 	useEffect(() => {
-		Axios.get("https://6313b715a8d3f673ffcf5d61.mockapi.io/CRUD")
+		Axios.get("103.191.240.74/api/vpscategory/")
 			.then((res) => {
 				console.log("getting data from fake api :::", res.data);
 				setData(res.data);

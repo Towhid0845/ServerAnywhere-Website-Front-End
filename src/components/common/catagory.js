@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../common/common.css";
 
 export default function Catagory() {
@@ -17,7 +18,7 @@ export default function Catagory() {
 
 				<div className="row catagory-item">
 					<div className="col-lg-3 col-md-4 col-sm-6 col-6 text-center">
-						<a href="/" className="zoom">
+						<Link to="/vps" className="zoom">
 							<img
 								width="100%"
 								height="138"
@@ -26,10 +27,10 @@ export default function Catagory() {
 								loading="lazy"
 							/>
 							<p>VPS SERVERS</p>
-						</a>
+						</Link>
 					</div>
 					<div className="col-lg-3 col-md-4 col-sm-6 col-6 text-center">
-						<a href="/" className="zoom">
+						<Link to="/minecraft" className="zoom">
 							<img
 								width="100%"
 								height="138"
@@ -38,22 +39,22 @@ export default function Catagory() {
 								loading="lazy"
 							/>
 							<p>Minecraft</p>
-						</a>
+						</Link>
 					</div>
 					<div className="col-lg-3 col-md-4 col-sm-6 col-6 text-center">
-						<a href="/" className="zoom">
+						<Link to="/rdp" className="zoom">
 							<img
 								width="100%"
 								height="138"
-								src="/images/catagory/dedicated.png"
+								src="/images/catagory/rdp.jpg"
 								alt="logo-error"
 								loading="lazy"
 							/>
-							<p>DEDICATED SERVERS</p>
-						</a>
+							<p>Vertual PC / RDP</p>
+						</Link>
 					</div>
 					<div className="col-lg-3 col-md-4 col-sm-6 col-6 text-center">
-						<a href="/" className="zoom">
+						<Link to="//bonghost.com/" className="zoom">
 							<img
 								width="100%"
 								height="138"
@@ -62,13 +63,13 @@ export default function Catagory() {
 								loading="lazy"
 							/>
 							<p>WEB HOSTING</p>
-						</a>
+						</Link>
 					</div>
 
 					{/* <div className="py-4"></div> */}
 
 					<div className="col-lg-3 col-md-4 col-sm-6 col-6 text-center">
-						<a href="/" className="zoom">
+						<Link to="/" className="zoom">
 							<img
 								width="100%"
 								height="138"
@@ -77,10 +78,10 @@ export default function Catagory() {
 								loading="lazy"
 							/>
 							<p>Storage</p>
-						</a>
+						</Link>
 					</div>
 					<div className="col-lg-3 col-md-4 col-sm-6 col-6 text-center">
-						<a href="/" className="zoom">
+						<Link to="/" className="zoom">
 							<img
 								width="100%"
 								height="138"
@@ -89,22 +90,22 @@ export default function Catagory() {
 								loading="lazy"
 							/>
 							<p>Mail server</p>
-						</a>
+						</Link>
 					</div>
 					<div className="col-lg-3 col-md-4 col-sm-6 col-6 text-center">
-						<a href="/" className="zoom">
+						<Link to="/dedicated" className="zoom">
 							<img
 								width="100%"
 								height="138"
-								src="/images/catagory/voice-server.jpeg"
+								src="/images/catagory/dedicated.png"
 								alt="logo-error"
 								loading="lazy"
 							/>
-							<p>VOICE SERVERS</p>
-						</a>
+							<p>Dedicated Server</p>
+						</Link>
 					</div>
 					<div className="col-lg-3 col-md-4 col-sm-6 col-6 text-center">
-						<a href="/" className="zoom">
+						<Link to="/minecraft" className="zoom">
 							<img
 								width="100%"
 								height="138"
@@ -112,8 +113,8 @@ export default function Catagory() {
 								alt="logo-error"
 								loading="lazy"
 							/>
-							<p>GAMES server</p>
-						</a>
+							<p>GAME Servers</p>
+						</Link>
 					</div>
 				</div>
 			</div>

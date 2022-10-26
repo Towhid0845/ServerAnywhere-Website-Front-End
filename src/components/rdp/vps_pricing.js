@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
 import Axios from "axios";
 
-function Pricing() {
+function PricingRDP() {
 	const [data, setData] = useState([]);
 
 	useEffect(() => {
@@ -17,7 +17,7 @@ function Pricing() {
 	// console.log(apiData);
 	const arr = data.map((data, index) => {
 		return (
-			<div className="col-3 pb-5">
+			<div className="col-lg-3 col-md-4 col-sm-6 offset-sm-0 col-8 offset-2 pb-5">
 				<Card>
 					<Card.Body>
 						<Card.Title>{data.id}</Card.Title>
@@ -53,4 +53,4 @@ function Pricing() {
 	);
 }
 
-export default Pricing;
+export default PricingRDP;

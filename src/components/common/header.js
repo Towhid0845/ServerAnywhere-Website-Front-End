@@ -1,11 +1,11 @@
 import React from "react";
 import "./common.css";
-import { IoMdArrowDropdown } from "react-icons/io";
+// import { IoMdArrowDropdown } from "react-icons/io";
 import { RiQuestionnaireLine } from "react-icons/ri";
 import { RiUserShared2Line } from "react-icons/ri";
 import { GoNote } from "react-icons/go";
 import { BsInfoCircle } from "react-icons/bs";
-
+import { FaBars } from "react-icons/fa";
 // import Container from "react-bootstrap/Container";
 // import Nav from "react-bootstrap/Nav";
 // import Navbar from "react-bootstrap/Navbar";
@@ -359,7 +359,9 @@ export default function Header() {
 					aria-expanded="false"
 					aria-label="Toggle navigation"
 				>
-					<span className="navbar-toggler-icon"></span>
+					<span className="text-white">
+						<FaBars />
+					</span>
 				</button>
 				<div
 					className="collapse navbar-collapse main-menu"
@@ -367,24 +369,27 @@ export default function Header() {
 				>
 					<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 						<li className="nav-item dropdown menu-item minecraft pe-3">
-							<Link
-								className="nav-link dropdown-toggle"
-								to="/"
+							<Link aria-current="page" to="/minecraft" className="nav-link">
+								<div className="">Minecraft</div>
+							</Link>
+							{/* <Link
+								className="nav-link "
+								to="/minecraft"
 								id="navbarDropdown"
 								role="button"
 								data-bs-toggle="dropdown"
 								aria-expanded="false"
 							>
 								Minecraft
-							</Link>
-							<ul className="sub-menu p-3" aria-labelledby="navbarDropdown">
+							</Link> */}
+							{/* <ul className="sub-menu p-3" aria-labelledby="navbarDropdown">
 								<li className="sub-menu-item">
 									<Link
 										aria-current="page"
 										to="/"
 										className="row py-1 dropdown-item"
-									>
-										{/* <div className="col-3">
+									> */}
+							{/* <div className="col-3">
 											<img
 												className="img-fluid"
 												src="/images/menu/icon-java.svg"
@@ -394,7 +399,7 @@ export default function Header() {
 												loading="lazy"
 											/>
 										</div> */}
-										<div className="col">Java</div>
+							{/* <div className="col">Java</div>
 									</Link>
 								</li>
 								<li className="sub-menu-item">
@@ -402,8 +407,8 @@ export default function Header() {
 										aria-current="page"
 										to="/"
 										className="row py-1 dropdown-item"
-									>
-										{/* <div className="col-3">
+									> */}
+							{/* <div className="col-3">
 											<img
 												className="img-fluid"
 												src="/images/menu/icon-bedrock.svg"
@@ -413,10 +418,10 @@ export default function Header() {
 												loading="lazy"
 											/>
 										</div> */}
-										<div className="col">Bedrock</div>
+							{/* <div className="col">Bedrock</div>
 									</Link>
 								</li>
-							</ul>
+							</ul> */}
 							{/* <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
 								<li>
 									<Link className="dropdown-item" to="/">
