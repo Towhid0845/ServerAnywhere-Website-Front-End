@@ -1,46 +1,31 @@
-import React, { useEffect, useState } from "react";
-import "./admin.css";
+import { Link } from "react-router-dom";
 import Create from "./create/create";
 import Read from "./read/read";
-// import Header from "../../home/header";
-// import { Dropdown } from "semantic-ui-react";
 
-// const Options = [
-// 	{
-// 		key: "1",
-// 		text: "Catagory 1",
-// 		value: "xyz",
-// 	},
-// 	{
-// 		key: "1",
-// 		text: "Catagory 2",
-// 		value: "abc",
-// 	},
-// 	{
-// 		key: "3",
-// 		text: "Catagory 3",
-// 		value: "pqr",
-// 	},
-// ];
-
-const Admin_page = () => {
+const AdminPage = () => {
 	return (
 		<div>
-			{/* <Header /> */}
-			{/* <div>
-				<div className="main">
-					<h1>Welcome to Admin Panel</h1>
-				</div>
-				<div style={{ width: 400, marginLeft: 200, marginTop: 20 }}>
-					<h3>Catagory</h3>
-					<Dropdown
-						placeholder="Select Catarory"
-						fluid
-						selection
-						options={Options}
-					/>
-				</div>
-			</div> */}
+			<div
+				style={{
+					background: "#1D002F",
+					paddingBottom: "50px",
+					paddingTop: "20px",
+				}}
+			>
+				<img
+					className=""
+					src="/images/brand/new-main-logo.png"
+					alt="error"
+					width="150"
+					height="50"
+					style={{ float: "left" }}
+				></img>
+				<ul style={{ paddingLeft: "200px" }}>
+					<li>
+						<Link to="/admin">Home</Link>
+					</li>
+				</ul>
+			</div>
 			<div style={{ width: 400, marginLeft: 200, marginTop: 20 }}>
 				<h3>Add a Package</h3>
 				<Create />
@@ -51,4 +36,4 @@ const Admin_page = () => {
 		</div>
 	);
 };
-export default Admin_page;
+export default AdminPage;

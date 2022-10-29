@@ -10,9 +10,9 @@ import Plan from "./components/plan";
 import RDP from "./components/rdp";
 import Client from "./components/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Admin_page from "./components/admin";
+import AdminPage from "./components/admin";
 import Create from "./components/admin/create/create";
-import Read from "./components/admin/read/read";
+// import Read from "./components/admin/read/read";
 import Update from "./components/admin/update/update";
 
 function App() {
@@ -31,9 +31,9 @@ function App() {
 					<Route exact path="/signup" element={<Signup />}></Route>
 					<Route exact path="/client" element={<Client />}></Route>
 
-					<Route exact path="/admin" element={<Admin_page />}></Route>
+					<Route exact path="/admin" element={<AdminPage />}></Route>
 					<Route exact path="/admin/create" element={<Create />}></Route>
-					<Route exact path="/admin/read" element={<Read />}></Route>
+					{/* <Route exact path="/admin/read" element={<Read />}></Route> */}
 					<Route exact path="/admin/update" element={<Update />}></Route>
 				</Routes>
 			</Router>

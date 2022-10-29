@@ -9,6 +9,7 @@ import { FaEye } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa";
 import { BsPersonLinesFill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 // import { FaPhoneAlt } from "react-icons/fa";
 
 import axios from "axios";
@@ -44,6 +45,7 @@ const SignupPage = () => {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const navigate = useNavigate();
 	console.log({ name, email, password });
 
 	const handleName = (e) => {
@@ -60,7 +62,7 @@ const SignupPage = () => {
 		e.preventDefault();
 		console.log({ name, email, password });
 		axios
-			.post("https://glacial-refuge-00597.herokuapp.com/api/user/signup", {
+			.post("http://103.191.240.74/api/user/signup", {
 				name: name,
 				email: email,
 				password: password,
@@ -69,7 +71,8 @@ const SignupPage = () => {
 				console.log(result.data);
 				const { token } = result.data;
 				localStorage.setItem("token", token);
-				alert("sign up success");
+				navigate("/login");
+				// alert("sign up success");
 			})
 			.catch((error) => {
 				alert("service error");

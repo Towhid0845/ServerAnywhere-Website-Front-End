@@ -7,7 +7,7 @@ function VPSPricing() {
 	const [data, setData] = useState([]);
 
 	useEffect(() => {
-		Axios.get("103.191.240.74/api/vpscategory/")
+		Axios.get("http://103.191.240.74/api/vpsproduct/")
 			.then((res) => {
 				console.log("getting data from fake api :::", res.data);
 				setData(res.data);
@@ -20,6 +20,7 @@ function VPSPricing() {
 			<div className="col-lg-3 col-md-4 col-sm-6 offset-sm-0 col-8 offset-2 pb-5">
 				<Card>
 					<Card.Body>
+						{/* <Card.Title>{data.name}</Card.Title> */}
 						<Card.Title>{data.id}</Card.Title>
 						<Card.Title>{data.size}</Card.Title>
 						<Card.Text>{data.ram}</Card.Text>

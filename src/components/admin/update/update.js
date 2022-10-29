@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Button, Form } from "semantic-ui-react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Update() {
 	let navigate = useNavigate();
@@ -39,6 +40,27 @@ export default function Update() {
 
 	return (
 		<div>
+			<div
+				style={{
+					background: "#1D002F",
+					paddingBottom: "50px",
+					paddingTop: "20px",
+				}}
+			>
+				<img
+					className=""
+					src="/images/brand/new-main-logo.png"
+					alt="error"
+					width="150"
+					height="50"
+					style={{ float: "left" }}
+				></img>
+				<ul style={{ paddingLeft: "200px" }}>
+					<li>
+						<Link to="/admin">Home</Link>
+					</li>
+				</ul>
+			</div>
 			<Form style={{ width: 400, marginLeft: 200 }}>
 				<Form.Field>
 					<label>Catagory</label>

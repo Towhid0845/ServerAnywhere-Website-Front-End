@@ -1,11 +1,33 @@
 import React from "react";
 import { useState } from "react";
-import { Button, Form } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Button, Form } from "semantic-ui-react";
 // import { Link } from "react-router-dom";
 
 export default function Create() {
+	// const navigate = useNavigate();
+	// const [category, setCategory] = useState("");
+	// const [processor, setProcessor] = useState("");
+	// const [RAM, setRAM] = useState("");
+	// const [OS, setOS] = useState("");
+	// const [diskspace, setdiskspace] = useState("");
+	// const [price, setPrice] = useState("");
+	// const sendDataToAPI = () => {
+	// 	axios
+
+	// 		.post(`103.191.240.74/api/vpsproduct/`, {
+	// 			category,
+	// 			processor,
+	// 			RAM,
+	// 			OS,
+	// 			diskspace,
+	// 			price,
+	// 		})
+	// 		.then(() => {
+	// 			navigate("/admin/read");
+	// 		});
+	// };
 	const navigate = useNavigate();
 	const [Catagory, setCatagory] = useState("");
 	const [CPU, setCpu] = useState("");
@@ -17,7 +39,6 @@ export default function Create() {
 	const sendDataToAPI = () => {
 		axios
 			.post(`https://6313b715a8d3f673ffcf5d61.mockapi.io/CRUD`, {
-				// .post(`103.191.240.74/api/vpscategory/`, {
 				Catagory,
 				CPU,
 				RAM,
@@ -26,7 +47,8 @@ export default function Create() {
 				Price,
 			})
 			.then(() => {
-				navigate("/admin/read");
+				// navigate("/admin");
+				navigate(0);
 			});
 	};
 
@@ -34,36 +56,39 @@ export default function Create() {
 		<div>
 			<Form>
 				<Form.Field>
-					<label>Catagory</label>
+					<label>Category</label>
 					<input
-						name="catagory"
+						name="category"
 						onChange={(e) => setCatagory(e.target.value)}
-						placeholder="select a catagory"
+						placeholder="select a category"
 					/>
 				</Form.Field>
 				<Form.Field>
 					<label>CPU</label>
 					<input
-						name="cpu"
+						name="processor"
 						onChange={(e) => setCpu(e.target.value)}
 						placeholder="CPU Name"
 					/>
 				</Form.Field>
 				<Form.Field>
 					<label>RAM</label>
-					<input name="ram" onChange={(e) => setRam(e.target.value)} />
+					<input name="RAM" onChange={(e) => setRam(e.target.value)} />
 				</Form.Field>
 				<Form.Field>
 					<label>OS</label>
 					<input
-						name="os"
+						name="OS"
 						onChange={(e) => setOs(e.target.value)}
 						placeholder="Operating System"
 					/>
 				</Form.Field>
 				<Form.Field>
 					<label>Storage</label>
-					<input name="storage" onChange={(e) => setStorage(e.target.value)} />
+					<input
+						name="diskspace"
+						onChange={(e) => setStorage(e.target.value)}
+					/>
 				</Form.Field>
 				<Form.Field>
 					<label>Price</label>
