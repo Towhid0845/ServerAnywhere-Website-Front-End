@@ -7,7 +7,8 @@ function DedicatedPricing() {
 	const [data, setData] = useState([]);
 
 	useEffect(() => {
-		Axios.get("103.191.240.74/api/dedicatedcategory/")
+		// Axios.get("103.191.240.74/api/dedicatedproduct/")
+		Axios.get("http://localhost:3000/api/dedicatedproduct/")
 			.then((res) => {
 				console.log("getting data from fake api :::", res.data);
 				setData(res.data);
@@ -20,15 +21,11 @@ function DedicatedPricing() {
 			<div className="col-lg-3 col-md-4 col-sm-6 offset-sm-0 col-8 offset-2 pb-5">
 				<Card>
 					<Card.Body>
-						<Card.Title>{data.id}</Card.Title>
-						<Card.Title>{data.size}</Card.Title>
-						<Card.Text>{data.ram}</Card.Text>
-						<Card.Text>{data.ssd}</Card.Text>
-						<Card.Text>{data.bandwidth}</Card.Text>
-						<Card.Text>{data.core}</Card.Text>
-						<Card.Text>{data.port}</Card.Text>
-						<Card.Text>{data.setup}</Card.Text>
-						<Card.Text>{data.vm}</Card.Text>
+						{/* <Card.Title>{data.id}</Card.Title> */}
+						<Card.Title>{data.processor}</Card.Title>
+						<Card.Text>{data.RAM}</Card.Text>
+						<Card.Text>{data.OS}</Card.Text>
+						<Card.Text>{data.diskspace}</Card.Text>
 						<Card.Text className="price">
 							<span>{data.price}</span>/ per month
 						</Card.Text>

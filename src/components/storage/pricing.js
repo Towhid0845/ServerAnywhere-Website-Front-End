@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
 import Axios from "axios";
 
-function VPSPricing() {
+function Pricing() {
 	const [data, setData] = useState([]);
 
 	useEffect(() => {
@@ -43,7 +43,7 @@ function VPSPricing() {
 		<div id="pricing">
 			<div className="container">
 				<div className="row">
-					<div className="section-title pb-5">plans and pricing</div>
+					<div className="section-title pb-5">Our Services</div>
 				</div>
 				<div className="row">{arr}</div>
 			</div>
@@ -51,4 +51,4 @@ function VPSPricing() {
 	);
 }
 
-export default VPSPricing;
+export default Pricing;

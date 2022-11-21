@@ -5,39 +5,34 @@ import { Link } from "react-router-dom";
 
 export default function Read() {
 	const [apiData, setApiData] = useState([]);
-
 	useEffect(() => {
-		axios
-			.get(`https://6313b715a8d3f673ffcf5d61.mockapi.io/CRUD`)
-			.then((getData) => {
-				setApiData(getData.data);
-			});
+		// axios.get(`http://103.191.240.74/api/vpsproduct`).then((getData) => {
+		axios.get(`http://localhost:3000/api/vpsproduct`).then((getData) => {
+			setApiData(getData.data);
+		});
 	}, []);
-	console.log(apiData);
-	const setData = (id, Catagory, CPU, RAM, OS, Storage, Price) => {
+	const setData = (id, catagory, processor, RAM, OS, diskspace, price) => {
 		// console.log(id);
 		localStorage.setItem("ID", id);
-		localStorage.setItem("Catagory", Catagory);
-		localStorage.setItem("CPU", CPU);
+		localStorage.setItem("Catagory", catagory);
+		localStorage.setItem("CPU", processor);
 		localStorage.setItem("RAM", RAM);
 		localStorage.setItem("OS", OS);
-		localStorage.setItem("Storage", Storage);
-		localStorage.setItem("Price", Price);
+		localStorage.setItem("Storage", diskspace);
+		localStorage.setItem("Price", price);
 	};
 	const getData = () => {
-		axios
-			.get(`https://6313b715a8d3f673ffcf5d61.mockapi.io/CRUD`)
-			.then((getData) => {
-				setApiData(getData.data);
-			});
+		// axios.get(`http://103.191.240.74/api/vpsproduct`).then((getData) => {
+		axios.get(`http://localhost:3000/api/vpsproduct`).then((getData) => {
+			setApiData(getData.data);
+		});
 	};
 
 	const onDelete = (id) => {
-		axios
-			.delete(`https://6313b715a8d3f673ffcf5d61.mockapi.io/CRUD/${id}`)
-			.then(() => {
-				getData();
-			});
+		// axios.delete(`http://103.191.240.74/api/vpsproduct/${id}`).then(() => {
+		axios.delete(`http://localhost:3000/api/vpsproduct/${id}`).then(() => {
+			getData();
+		});
 	};
 
 	return (
@@ -61,26 +56,26 @@ export default function Read() {
 					{apiData.map((data) => {
 						return (
 							<Table.Row>
-								<Table.Cell>{data.id}</Table.Cell>
-								<Table.Cell>{data.Catagory}</Table.Cell>
-								<Table.Cell>{data.CPU}</Table.Cell>
+								<Table.Cell>{data._id}</Table.Cell>
+								<Table.Cell>{data.category}</Table.Cell>
+								<Table.Cell>{data.processor}</Table.Cell>
 								<Table.Cell>{data.RAM}</Table.Cell>
 								<Table.Cell>{data.OS}</Table.Cell>
-								<Table.Cell>{data.Storage}</Table.Cell>
-								<Table.Cell>{data.Price}</Table.Cell>
+								<Table.Cell>{data.diskspace}</Table.Cell>
+								<Table.Cell>{data.price}</Table.Cell>
 								<Table.Cell>
 									<Link to="/admin/update">
 										<Button
 											color="green"
 											onClick={() =>
 												setData(
-													data.id,
-													data.Catagory,
-													data.CPU,
+													data._id,
+													data.catagory,
+													data.processor,
 													data.RAM,
 													data.OS,
-													data.Storage,
-													data.Price
+													data.diskspace,
+													data.price
 												)
 											}
 										>
@@ -90,7 +85,7 @@ export default function Read() {
 								</Table.Cell>
 								<Table.Cell>
 									<Link to="/admin">
-										<Button color="red" onClick={() => onDelete(data.id)}>
+										<Button color="red" onClick={() => onDelete(data._id)}>
 											Delete
 										</Button>
 									</Link>

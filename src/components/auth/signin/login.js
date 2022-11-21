@@ -39,17 +39,30 @@ const Login = () => {
 
 	const handleApi = (e) => {
 		e.preventDefault();
-		console.log({ email, password });
+		// console.log({ email, password });
 		axios
-			.post("http://103.191.240.74/api/user/signin", {
+			// .post("http://103.191.240.74/api/user/signin", {
+			.post("http://localhost:3000/api/user/signin", {
 				email: email,
 				password: password,
 			})
 			.then((result) => {
 				console.log(result.data);
 				const { token } = result.data;
+				//console.log(result.data.token);
 				localStorage.setItem("token", token);
-				navigate("/admin");
+				const role = result.data.user.role;
+				// console.log(role);
+				// console.log(result.data.user._id);
+				if (role === "admin") {
+					navigate("/admin");
+				} else {
+					navigate("/client");
+				}
+
+				//navigate("/admin");
+
+				//navigate("/client");
 				// alert("success");
 			})
 			.catch((error) => {

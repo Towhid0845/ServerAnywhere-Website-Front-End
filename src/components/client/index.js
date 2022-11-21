@@ -21,11 +21,33 @@ import { Link } from "react-router-dom";
 
 // import { RiQuestionnaireLine } from "react-icons/ri";
 // import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function Client() {
+	const navigate = useNavigate();
+	useEffect(() => {
+		if (!localStorage.getItem("token")) {
+			navigate("/login");
+		}
+	}, []);
+
 	return (
 		<div>
 			<Header />
+			<div>
+				<Button
+					onClick={() => {
+						localStorage.removeItem("token");
+						window.location.reload(false);
+					}}
+				>
+					Logout
+				</Button>
+				{/* <button onClick={() => window.location.reload(false)}>
+					Click to reload!
+				</button> */}
+			</div>
 			<section id="client">
 				<div className="container px-0 pt-5 client-text">
 					<div className="row">

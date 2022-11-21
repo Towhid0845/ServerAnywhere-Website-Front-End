@@ -341,7 +341,7 @@ export default function Header() {
 		// </div>
 
 		<nav className="navbar navbar-expand-lg" style={{ background: "#1d002f" }}>
-			<div className="container-fluid">
+			<div className="container header-width">
 				<Link className="navbar-brand ms-3 me-5" to="/">
 					<img
 						src="/images/brand/new-main-logo.png"
@@ -368,6 +368,11 @@ export default function Header() {
 					id="navbarSupportedContent"
 				>
 					<ul className="navbar-nav me-auto mb-2 mb-lg-0">
+						<li className="nav-item menu-item pe-3">
+							<Link aria-current="page" to="/" className="nav-link">
+								<div className="">Home</div>
+							</Link>
+						</li>
 						<li className="nav-item dropdown menu-item minecraft pe-3">
 							<Link aria-current="page" to="/minecraft" className="nav-link">
 								<div className="">Minecraft</div>
@@ -381,15 +386,15 @@ export default function Header() {
 								aria-expanded="false"
 							>
 								Minecraft
-							</Link> */}
-							{/* <ul className="sub-menu p-3" aria-labelledby="navbarDropdown">
+							</Link>
+							<ul className="sub-menu p-3" aria-labelledby="navbarDropdown">
 								<li className="sub-menu-item">
 									<Link
 										aria-current="page"
 										to="/"
 										className="row py-1 dropdown-item"
-									> */}
-							{/* <div className="col-3">
+									>
+							<div className="col-3">
 											<img
 												className="img-fluid"
 												src="/images/menu/icon-java.svg"
@@ -398,8 +403,8 @@ export default function Header() {
 												height="18"
 												loading="lazy"
 											/>
-										</div> */}
-							{/* <div className="col">Java</div>
+										</div>
+							<div className="col">Java</div>
 									</Link>
 								</li>
 								<li className="sub-menu-item">
@@ -407,8 +412,8 @@ export default function Header() {
 										aria-current="page"
 										to="/"
 										className="row py-1 dropdown-item"
-									> */}
-							{/* <div className="col-3">
+									>
+							<div className="col-3">
 											<img
 												className="img-fluid"
 												src="/images/menu/icon-bedrock.svg"
@@ -417,12 +422,12 @@ export default function Header() {
 												height="18"
 												loading="lazy"
 											/>
-										</div> */}
-							{/* <div className="col">Bedrock</div>
+										</div>
+							<div className="col">Bedrock</div>
 									</Link>
 								</li>
-							</ul> */}
-							{/* <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+							</ul>
+							 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
 								<li>
 									<Link className="dropdown-item" to="/">
 										Action

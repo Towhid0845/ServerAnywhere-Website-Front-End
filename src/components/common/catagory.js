@@ -69,7 +69,7 @@ export default function Catagory() {
 					{/* <div className="py-4"></div> */}
 
 					<div className="col-lg-3 col-md-4 col-sm-6 col-6 text-center">
-						<Link to="/" className="zoom">
+						<Link to="/storage" className="zoom">
 							<img
 								width="100%"
 								height="138"

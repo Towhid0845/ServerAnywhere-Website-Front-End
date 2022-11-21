@@ -62,7 +62,8 @@ const SignupPage = () => {
 		e.preventDefault();
 		console.log({ name, email, password });
 		axios
-			.post("http://103.191.240.74/api/user/signup", {
+			// .post("http://103.191.240.74/api/user/signup", {
+			.post("http://localhost:3000/api/user/signup", {
 				name: name,
 				email: email,
 				password: password,
