@@ -14,6 +14,7 @@ import Client from "./components/client";
 import AdminPage from "./components/admin";
 import Create from "./components/admin/create/create";
 import Update from "./components/admin/update/update";
+import EmailVerify from "./components/auth/EmailVerify";
 // import Read from "./components/admin/read/read";
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
 
 					<Route exact path="/login" element={<Signin />}></Route>
 					<Route exact path="/signup" element={<Signup />}></Route>
+					<Route path="/user/:id/verify/:token" element={<EmailVerify />} />
 
 					<Route exact path="/client" element={<Client />}></Route>
 					<Route exact path="/admin" element={<AdminPage />}></Route>

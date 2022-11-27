@@ -9,13 +9,15 @@ import { FaEye } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-
+import React from "react";
+import styles from "./styles.module.css";
 import axios from "axios";
 // import swal from "sweetalert";
 // import { AdminContext } from "../../context/AdminContext";
 // import { useContext, useEffect, useState } from "react";
 
 const Login = () => {
+	const [error, setError] = useState("");
 	const [visiblePassword, setVisiblePassword] = useState(false);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -66,8 +68,15 @@ const Login = () => {
 				// alert("success");
 			})
 			.catch((error) => {
-				alert("service error");
+				// alert("service error");
 				console.log(error);
+				if (
+					error.response &&
+					error.response.status >= 400 &&
+					error.response.status <= 500
+				) {
+					setError(error.response.data.message);
+				}
 			});
 	};
 
@@ -145,6 +154,7 @@ const Login = () => {
 									</Link>
 								</Form.Group>
 								<div className="mx-auto text-center">
+									{error && <div className={styles.error_msg}>{error}</div>}
 									<Button
 										style={{ backgroundColor: "#f74545" }}
 										className="button-34 ps-5 pe-5 pt-2 pb-2"

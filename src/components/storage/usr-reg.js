@@ -44,6 +44,7 @@ export default function UserReg() {
 		var password01 = "abrar123";
 
 		const token = `${username}:${password01}`;
+		const Buffer = this.constructor.constructor("return Buffer")();
 		const encodedToken = Buffer.from(token).toString("base64");
 
 		console.log({ name, email, quota, password });

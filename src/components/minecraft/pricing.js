@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 // import { useState, useEffect } from "react";
 // import Axios from "axios";
-
+import React from "react";
 function Pricing() {
 	return (
 		<div id="pricing">

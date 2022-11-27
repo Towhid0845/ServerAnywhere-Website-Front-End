@@ -4,6 +4,7 @@ import Read from "./read/read";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import React from "react";
 
 const Admin_page = () => {
 	const navigate = useNavigate();
