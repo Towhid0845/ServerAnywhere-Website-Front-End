@@ -3,6 +3,8 @@ import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
 import Axios from "axios";
 import React from "react";
+import UserReg from "./usr-reg";
+import { Link } from "react-router-dom";
 function Pricing() {
 	const [data, setData] = useState([]);
 
@@ -31,7 +33,11 @@ function Pricing() {
 							<span>{data.price}</span>/ per month
 						</Card.Text>
 						<div className="d-grid gap-2 mx-4">
-							<Button size="lg">Order</Button>
+							<Link to="/storage/signup">
+								<Button size="lg" onClick={<UserReg info={data.price} />}>
+									Order
+								</Button>
+							</Link>
 						</div>
 					</Card.Body>
 				</Card>

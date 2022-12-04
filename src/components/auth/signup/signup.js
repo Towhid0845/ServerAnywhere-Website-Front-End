@@ -74,8 +74,10 @@ const SignupPage = () => {
 			.then((result) => {
 				setMsg(result.message);
 				console.log(result.data);
-				const { token } = result.data;
+				const token = result.data.token;
+				// localStorage.setItem("token", token);
 				localStorage.setItem("token", token);
+
 				navigate("/login");
 				// alert("sign up success");
 			})

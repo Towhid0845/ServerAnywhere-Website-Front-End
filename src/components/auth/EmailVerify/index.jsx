@@ -8,11 +8,11 @@ import React from "react";
 const EmailVerify = () => {
 	const [validUrl, setValidUrl] = useState(true);
 	const param = useParams();
-
+	const token = localStorage.getItem("token");
 	useEffect(() => {
 		const verifyEmailUrl = async () => {
 			try {
-				const url = `http://localhost:3000/api/user/${param.id}/verify/${param.token}`;
+				const url = `http://localhost:3000/api/user/${param.id}/verify/${token}`;
 				const { data } = await axios.get(url);
 				console.log(data);
 				setValidUrl(true);

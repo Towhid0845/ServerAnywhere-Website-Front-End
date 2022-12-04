@@ -6,6 +6,7 @@ import Dedicated from "./components/dedicated/index";
 import VPS from "./components/vps/index";
 import Web from "./components/web/index";
 import Storage from "./components/storage";
+import UserReg from "./components/storage/usr-reg";
 import Plan from "./components/plan";
 import RDP from "./components/rdp";
 import Signin from "./components/auth/signin";
@@ -30,11 +31,14 @@ function App() {
 					<Route exact path="/plan" element={<Plan />}></Route>
 					<Route exact path="/web" element={<Web />}></Route>
 					<Route exact path="/storage" element={<Storage />}></Route>
-
+					<Route exact path="/storage/signup" element={<UserReg />}></Route>
 					<Route exact path="/login" element={<Signin />}></Route>
 					<Route exact path="/signup" element={<Signup />}></Route>
-					<Route path="/user/:id/verify/:token" element={<EmailVerify />} />
-
+					<Route
+						exact
+						path="/user/:id/verify/:token"
+						element={<EmailVerify />}
+					></Route>
 					<Route exact path="/client" element={<Client />}></Route>
 					<Route exact path="/admin" element={<AdminPage />}></Route>
 					<Route exact path="/admin/create" element={<Create />}></Route>

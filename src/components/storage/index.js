@@ -5,7 +5,7 @@ import Footer from "../common/footer";
 import Banner from "./banner";
 import About from "./about";
 import Pricing from "./pricing";
-import UserReg from "./usr-reg";
+// import UserReg from "./usr-reg";
 import Catagory from "../common/catagory";
 
 export default function Storage() {
@@ -15,7 +15,7 @@ export default function Storage() {
 			<Banner />
 			<About />
 			<Pricing />
-			<UserReg />
+			{/* <UserReg /> */}
 			<Catagory />
 			<Footer />
 		</div>

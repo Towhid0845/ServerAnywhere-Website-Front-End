@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Button, Form } from "semantic-ui-react";
+// import { Button, Form } from "semantic-ui-react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 export default function Update() {
 	// let navigate = useNavigate();

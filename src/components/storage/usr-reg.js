@@ -16,7 +16,7 @@ import { FaEnvelope } from "react-icons/fa";
 import { BsPersonLinesFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 
-export default function UserReg() {
+export default function UserReg(props) {
 	const [visiblePassword, setVisiblePassword] = useState(false);
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
@@ -38,31 +38,28 @@ export default function UserReg() {
 		setPassword(e.target.value);
 	};
 
+	var username = "abrar";
+	var password1 = "abrar123";
+
+	const token = `${username}:${password1}`;
+	const encodedToken = Buffer.from(token).toString("base64");
+	let axiosConfig = {
+		headers: {
+			Authorization: "Basic " + encodedToken,
+			"OCS-APIRequest": true,
+		},
+	};
+
 	const handleApi = (e) => {
 		e.preventDefault();
-		var username = "abrar";
-		var password01 = "abrar123";
-
-		const token = `${username}:${password01}`;
-		const Buffer = this.constructor.constructor("return Buffer")();
-		const encodedToken = Buffer.from(token).toString("base64");
-
 		console.log({ name, email, quota, password });
-		let axiosConfig = {
-			headers: {
-				Authorization: "Basic " + encodedToken,
-				// Authorization: "Basic " + token,
-				"OCS-APIRequest": true,
-			},
-		};
 		axios
-			// .post(
-			// 	"http://localhost:3000/api/clouduser/signup/",
-			// 	{
-			// .post("http://103.191.240.74/api/user/signup", {
 			.post(
 				"http://103.191.240.104/ocs/v1.php/cloud/users",
 				{
+					// .post(
+					// 	"http://localhost:3000/api/clouduser/signup",
+					// 	{
 					name: name,
 					email: email,
 					quota: quota,
@@ -71,22 +68,27 @@ export default function UserReg() {
 				axiosConfig
 			)
 			.then((result) => {
+				// setMsg(result.message);
 				console.log(result.data);
-				result.save();
-				// const { token } = result.data;
+				const token = result.data.token;
 				// localStorage.setItem("token", token);
+				localStorage.setItem("token", token);
+
 				// navigate("/login");
 				alert("sign up success");
-				navigate(
-					"http://103.191.240.104/index.php/login?redirect_url=/index.php/apps/dashboard/"
-				);
 			})
 			.catch((error) => {
 				alert("service error");
-				console.log(error);
+				// console.log(error);
+				// if (
+				// 	error.response &&
+				// 	error.response.status >= 400 &&
+				// 	error.response.status <= 500
+				// ) {
+				// 	setError(error.response.data.message);
+				// }
 			});
 	};
-
 	return (
 		<div id="banner" style={{ paddingTop: "60px" }}>
 			<div class="container mt-5 about-style" id="serviceid">
@@ -228,14 +230,13 @@ export default function UserReg() {
 										<InputGroup.Text
 											id="basic-addon1"
 											className="bg-dark border-0 text-white"
-										>
-											{/* <FaPhoneAlt /> */}
-										</InputGroup.Text>
+										></InputGroup.Text>
 										<Form.Control
 											style={{ textTransform: "lowercase" }}
 											className="inputBackground"
 											autoComplete="off"
-											value={quota}
+											// value={quota}
+											value={props.info}
 											onChange={handleQuota}
 											placeholder="quota"
 											aria-label="Phonenumber"
