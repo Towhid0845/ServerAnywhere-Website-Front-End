@@ -12,7 +12,9 @@ const EmailVerify = () => {
 	useEffect(() => {
 		const verifyEmailUrl = async () => {
 			try {
+				//3000 is back-end port. url must get from back-end api.
 				const url = `http://localhost:3000/api/user/${param.id}/verify/${token}`;
+				// const url = `http://localhost:3000/api/user/${param.id}/verify/${token}`;
 				const { data } = await axios.get(url);
 				console.log(data);
 				setValidUrl(true);

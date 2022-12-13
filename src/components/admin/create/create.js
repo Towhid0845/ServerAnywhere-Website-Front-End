@@ -56,8 +56,8 @@ export default function Create() {
 
 	useEffect(() => {
 		axios
-			// .get("http://103.191.240.74/api/vpscategory")
-			.get("http://localhost:3000/api/vpscategory")
+			.get("http://103.191.240.74/api/vpscategory")
+			// .get("http://localhost:3000/api/vpscategory")
 			.then((response) => {
 				setValues({
 					...values,
@@ -91,8 +91,8 @@ export default function Create() {
 		});
 		//  const { token } = userInfo();
 		axios
-			// .post("http://103.191.240.74/api/vpsproduct", formData)
-			.post("http://localhost:3000/api/vpsproduct", formData)
+			.post("http://103.191.240.74/api/vpsproduct", formData)
+			// .post("http://localhost:3000/api/vpsproduct", formData)
 			.then((response) => {
 				console.log(response.data);
 				setValues({

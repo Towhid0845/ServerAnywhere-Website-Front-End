@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 export default function Read() {
 	const [apiData, setApiData] = useState([]);
 	useEffect(() => {
-		// axios.get(`http://103.191.240.74/api/vpsproduct`).then((getData) => {
-		axios.get(`http://localhost:3000/api/vpsproduct`).then((getData) => {
+		axios.get(`http://103.191.240.74/api/vpsproduct`).then((getData) => {
+			// axios.get(`http://localhost:3000/api/vpsproduct`).then((getData) => {
 			setApiData(getData.data);
 		});
 	}, []);
@@ -23,14 +23,14 @@ export default function Read() {
 	};
 	const getData = () => {
 		// axios.get(`http://103.191.240.74/api/vpsproduct`).then((getData) => {
-		axios.get(`http://localhost:3000/api/vpsproduct`).then((getData) => {
+		axios.get(`http://localhost:3001/api/vpsproduct`).then((getData) => {
 			setApiData(getData.data);
 		});
 	};
 
 	const onDelete = (id) => {
 		// axios.delete(`http://103.191.240.74/api/vpsproduct/${id}`).then(() => {
-		axios.delete(`http://localhost:3000/api/vpsproduct/${id}`).then(() => {
+		axios.delete(`http://localhost:3001/api/vpsproduct/${id}`).then(() => {
 			getData();
 		});
 	};

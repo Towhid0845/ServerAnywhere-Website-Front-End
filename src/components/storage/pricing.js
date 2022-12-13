@@ -9,15 +9,15 @@ function Pricing() {
 	const [data, setData] = useState([]);
 
 	useEffect(() => {
-		// Axios.get("http://103.191.240.74/api/vpsproduct/")
-		Axios.get("http://localhost:3000/api/vpsproduct/")
+		Axios.get("http://103.191.240.74/api/vpsproduct/")
+			// Axios.get("http://localhost:3000/api/vpsproduct/")
 			.then((res) => {
 				console.log("getting data from fake api :::", res.data);
 				setData(res.data);
 			})
 			.catch((err) => console.log(err));
 	}, []);
-	// console.log(apiData);
+	// console.log(data);
 	const arr = data.map((data, index) => {
 		return (
 			<div className="col-lg-3 col-md-4 col-sm-6 offset-sm-0 col-8 offset-2 pb-5">
@@ -25,6 +25,7 @@ function Pricing() {
 					<Card.Body>
 						{/* <Card.Title>{data.name}</Card.Title> */}
 						{/* <Card.Title>{data.id}</Card.Title> */}
+
 						<Card.Title>{data.processor}</Card.Title>
 						<Card.Text>{data.RAM}</Card.Text>
 						<Card.Text>{data.OS}</Card.Text>

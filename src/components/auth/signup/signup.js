@@ -14,6 +14,7 @@ import styles from "./styles.module.css";
 // import { FaPhoneAlt } from "react-icons/fa";
 import React from "react";
 import axios from "axios";
+
 // import swal from "sweetalert";
 // import { AdminContext } from "../../context/AdminContext";
 // import { useContext, useEffect, useState } from "react";
@@ -48,8 +49,9 @@ const SignupPage = () => {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [password_confirm, setPasswordConf] = useState("");
 	const navigate = useNavigate();
-	console.log({ name, email, password });
+	// console.log({ name, email, password });
 
 	const handleName = (e) => {
 		setName(e.target.value);
@@ -60,27 +62,71 @@ const SignupPage = () => {
 	const handlePassword = (e) => {
 		setPassword(e.target.value);
 	};
+	const handlePasswordConf = (e) => {
+		setPasswordConf(e.target.value);
+	};
+
+	var username = "admin";
+	var password1 = "hAO9qAeDaudMILEwGzoRkdnCbbnxXP8p";
+
+	const token = `${username}:${password1}`;
+	const encodedToken = Buffer.from(token).toString("base64");
+	let axiosConfig = {
+		headers: {
+			"Access-Control-Allow-Origin": "*",
+			Authorization: "Basic " + encodedToken,
+		},
+	};
 
 	const handleApi = (e) => {
 		e.preventDefault();
 		console.log({ name, email, password });
-		axios
-			// .post("http://103.191.240.74/api/user/signup", {
-			.post("http://localhost:3000/api/user/signup", {
+		//
+
+		Promise.all([
+			//active this api for local machine
+			axios.post("http://localhost:3000/api/user/signup", {
+				//active this api for server
+				// axios.post("http://103.191.240.74/api/user/signup", {
 				name: name,
 				email: email,
 				password: password,
-			})
-			.then((result) => {
-				setMsg(result.message);
-				console.log(result.data);
-				const token = result.data.token;
-				// localStorage.setItem("token", token);
-				localStorage.setItem("token", token);
+				// password_confirm: password_confirm,
+			}),
+			axios.post(
+				"http://103.191.240.74:81/api/guest/client/create",
+				{
+					first_name: name,
+					email: email,
+					password: password,
+					password_confirm: password_confirm,
+				},
+				axiosConfig
+			),
+		])
+			.then(
+				axios.spread((obj1, obj2) => {
+					setMsg(obj1.message);
+					console.log(obj1.data);
+					console.log(obj2.data);
+					const token = obj1.data.token;
+					// localStorage.setItem("token", token);
+					localStorage.setItem("token", token);
 
-				navigate("/login");
-				// alert("sign up success");
-			})
+					navigate("/login");
+					// alert("sign up success");
+				})
+			)
+			// .then((result) => {
+			// 	setMsg(result.message);
+			// 	console.log(result.data);
+			// 	const token = result.data.token;
+			// 	// localStorage.setItem("token", token);
+			// 	localStorage.setItem("token", token);
+
+			// 	navigate("/login");
+			// 	// alert("sign up success");
+			// })
 			.catch((error) => {
 				// alert("service error");
 				console.log(error);
@@ -156,28 +202,7 @@ const SignupPage = () => {
 								/>
 							</InputGroup>
 							<br />
-							{/* <InputGroup>
-								<InputGroup.Text
-									id="basic-addon1"
-									className="bg-dark border-0 text-white"
-								>
-									<FaPhoneAlt />
-								</InputGroup.Text>
-								<Form.Control
-									style={{ textTransform: "lowercase" }}
-									className="inputBackground"
-									autoComplete="off"
-									value={user.phone}
-									onChange={handleInputs}
-									placeholder="phone number"
-									aria-label="Phonenumber"
-									type="number"
-									// required
-									aria-describedby="basic-addon1"
-									name="phone"
-								/>
-							</InputGroup>
-							<br /> */}
+
 							<InputGroup className="mb-3">
 								<InputGroup.Text className="bg-dark border-0 text-white">
 									<FaLock />
@@ -194,6 +219,32 @@ const SignupPage = () => {
 									type={visiblePassword ? "text" : "password"}
 									required
 									name="password"
+								/>
+								<InputGroup.Text
+									className="bg-dark text-center border-0 cursor-pointer text-white"
+									role="button"
+									type="button"
+									onClick={() => setVisiblePassword(!visiblePassword)}
+								>
+									{visiblePassword ? <FaEye /> : <FaEyeSlash />}
+								</InputGroup.Text>
+							</InputGroup>
+							<InputGroup className="mb-3">
+								<InputGroup.Text className="bg-dark border-0 text-white">
+									<FaLock />
+								</InputGroup.Text>
+								<Form.Control
+									aria-label="password_confirm"
+									className="inputBackground"
+									placeholder="password_confirm"
+									autoComplete="off"
+									// value={user.password}
+									// onChange={handleInputs}
+									value={password_confirm}
+									onChange={handlePasswordConf}
+									type={visiblePassword ? "text" : "password_confirm"}
+									required
+									name="password_confirm"
 								/>
 								<InputGroup.Text
 									className="bg-dark text-center border-0 cursor-pointer text-white"

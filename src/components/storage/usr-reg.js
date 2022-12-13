@@ -14,7 +14,7 @@ import { FaEye } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa";
 import { BsPersonLinesFill } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 export default function UserReg(props) {
 	const [visiblePassword, setVisiblePassword] = useState(false);
@@ -22,7 +22,7 @@ export default function UserReg(props) {
 	const [email, setEmail] = useState("");
 	const [quota, setQuota] = useState("");
 	const [password, setPassword] = useState("");
-	const navigate = useNavigate();
+	// const navigate = useNavigate();
 	// console.log({ name, email, quota, password });
 
 	const handleName = (e) => {
@@ -45,6 +45,8 @@ export default function UserReg(props) {
 	const encodedToken = Buffer.from(token).toString("base64");
 	let axiosConfig = {
 		headers: {
+			// "Access-Control-Allow-Origin": "http://localhost:3001",
+			"Access-Control-Allow-Origin": "*",
 			Authorization: "Basic " + encodedToken,
 			"OCS-APIRequest": true,
 		},
@@ -56,15 +58,14 @@ export default function UserReg(props) {
 		axios
 			.post(
 				"http://103.191.240.104/ocs/v1.php/cloud/users",
+				// "http://localhost:3000/api/clouduser/signup",
 				{
-					// .post(
-					// 	"http://localhost:3000/api/clouduser/signup",
-					// 	{
-					name: name,
+					// userid: name,
 					email: email,
 					quota: quota,
 					password: password,
 				},
+				{ mode: "cors" },
 				axiosConfig
 			)
 			.then((result) => {

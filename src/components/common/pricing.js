@@ -8,7 +8,8 @@ function Pricing() {
 
 	useEffect(() => {
 		// Axios.get("https://6313b715a8d3f673ffcf5d61.mockapi.io/CRUD")
-		Axios.get("http://localhost:3000/api/vpsproduct/")
+		// Axios.get("http://localhost:3000/api/vpsproduct/")
+		Axios.get("http://103.191.240.74/api/vpsproduct/")
 			.then((res) => {
 				console.log("getting data from fake api :::", res.data);
 				setData(res.data);

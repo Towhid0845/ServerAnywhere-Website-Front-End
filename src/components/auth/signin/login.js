@@ -42,31 +42,63 @@ const Login = () => {
 	const handleApi = (e) => {
 		e.preventDefault();
 		// console.log({ email, password });
-		axios
-			// .post("http://103.191.240.74/api/user/signin", {
-			.post("http://localhost:3000/api/user/signin", {
+		//
+		Promise.all([
+			//active this api for local machine
+			axios.post("http://localhost:3000/api/user/signin", {
+				//active this api for server
+				// axios.post("http://103.191.240.74/api/user/signin", {
 				email: email,
 				password: password,
-			})
-			.then((result) => {
-				console.log(result.data);
-				const { token } = result.data;
-				//console.log(result.data.token);
-				localStorage.setItem("token", token);
-				const role = result.data.user.role;
-				// console.log(role);
-				// console.log(result.data.user._id);
-				if (role === "admin") {
-					navigate("/admin");
-				} else {
-					navigate("/client");
-				}
+			}),
+			axios.post("http://103.191.240.74:81/api/guest/client/login", {
+				email: email,
+				password: password,
+			}),
+		])
+			// .then((result) => {
+			// 	console.log(result.data);
+			// 	const { token } = result.data;
+			// 	//console.log(result.data.token);
+			// 	localStorage.setItem("token", token);
+			// 	const role = result.data.user.role;
+			// 	// console.log(role);
+			// 	// console.log(result.data.user._id);
+			// 	if (role === "admin") {
+			// 		navigate("/admin");
+			// 	} else {
+			// 		navigate("/client");
+			// 	}
 
-				//navigate("/admin");
+			// 	//navigate("/admin");
 
-				//navigate("/client");
-				// alert("success");
-			})
+			// 	//navigate("/client");
+			// 	// alert("success");
+			// })
+			.then(
+				axios.spread((obj1, obj2) => {
+					console.log(obj1.data);
+					console.log(obj2.data);
+					const { token } = obj1.data;
+					//console.log(result.data.token);
+					localStorage.setItem("token", token);
+					const role = obj1.data.user.role;
+					// console.log(role);
+					// console.log(result.data.user._id);
+					if (role === "admin") {
+						navigate("/admin");
+					} else {
+						// navigate("/");
+						// navigate("http://103.191.240.74:81");
+						window.location.href = "http://103.191.240.74:81/cart";
+					}
+
+					//navigate("/admin");
+
+					//navigate("/client");
+					// alert("success");
+				})
+			)
 			.catch((error) => {
 				// alert("service error");
 				console.log(error);

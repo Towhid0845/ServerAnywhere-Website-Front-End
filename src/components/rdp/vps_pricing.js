@@ -7,8 +7,8 @@ function PricingRDP() {
 	const [data, setData] = useState([]);
 
 	useEffect(() => {
-		// Axios.get("103.191.240.74/api/minecraftcategory/");
-		Axios.get("http://localhost:3000/api/minecraftcategory/")
+		Axios.get("103.191.240.74/api/minecraftcategory/")
+			// Axios.get("http://localhost:3000/api/minecraftcategory/")
 			.then((res) => {
 				console.log("getting data from fake api :::", res.data);
 				setData(res.data);
