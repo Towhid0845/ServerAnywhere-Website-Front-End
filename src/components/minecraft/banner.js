@@ -23,10 +23,7 @@ export default function Banner() {
 										</p>
 
 										<div className="mt-4">
-											<a
-												href="//my.forgesolutions.net/store"
-												className="btn btn-primary mx-1"
-											>
+											<a href="#pricing" className="btn btn-primary mx-1">
 												Get Started
 											</a>
 										</div>

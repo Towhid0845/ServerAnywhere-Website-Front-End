@@ -6,33 +6,58 @@ import { Link } from "react-router-dom";
 export default function Read() {
 	const [apiData, setApiData] = useState([]);
 	useEffect(() => {
-		axios.get(`http://103.191.240.74/api/vpsproduct`).then((getData) => {
+		axios
 			// axios.get(`http://localhost:3000/api/vpsproduct`).then((getData) => {
-			setApiData(getData.data);
-		});
+			// axios.get(`http://103.191.240.74/api/vpsproduct`).then((getData) => {
+			.get(`http://test.serveranywhere.net/api/vpsproduct`)
+			.then((getData) => {
+				setApiData(getData.data);
+			});
 	}, []);
-	const setData = (id, catagory, processor, RAM, OS, diskspace, price) => {
+	const setData = (
+		id,
+		catagory,
+		pacname,
+		dedicatedIP,
+		core,
+		RAM,
+		diskspace,
+		processor,
+		bandwidth,
+		uptime,
+		price
+	) => {
 		// console.log(id);
 		localStorage.setItem("ID", id);
 		localStorage.setItem("Catagory", catagory);
-		localStorage.setItem("CPU", processor);
+		localStorage.setItem("Package", pacname);
+		localStorage.setItem("DedicatedIP", dedicatedIP);
+		localStorage.setItem("Core", core);
 		localStorage.setItem("RAM", RAM);
-		localStorage.setItem("OS", OS);
 		localStorage.setItem("Storage", diskspace);
+		localStorage.setItem("Processor", processor);
+		localStorage.setItem("Bandwidth", bandwidth);
+		localStorage.setItem("UpTime", uptime);
 		localStorage.setItem("Price", price);
 	};
 	const getData = () => {
-		// axios.get(`http://103.191.240.74/api/vpsproduct`).then((getData) => {
-		axios.get(`http://localhost:3001/api/vpsproduct`).then((getData) => {
-			setApiData(getData.data);
-		});
+		axios
+			// axios.get(`http://localhost:3001/api/vpsproduct`).then((getData) => {
+			// axios.get(`http://103.191.240.74/api/vpsproduct`).then((getData) => {
+			.get(`http://test.serveranywhere.net/api/vpsproduct`)
+			.then((getData) => {
+				setApiData(getData.data);
+			});
 	};
 
 	const onDelete = (id) => {
-		// axios.delete(`http://103.191.240.74/api/vpsproduct/${id}`).then(() => {
-		axios.delete(`http://localhost:3001/api/vpsproduct/${id}`).then(() => {
-			getData();
-		});
+		axios
+			// axios.delete(`http://localhost:3001/api/vpsproduct/${id}`).then(() => {
+			// axios.delete(`http://103.191.240.74/api/vpsproduct/${id}`).then(() => {
+			.delete(`http://test.serveranywhere.net/api/vpsproduct/${id}`)
+			.then(() => {
+				getData();
+			});
 	};
 
 	return (
@@ -42,10 +67,14 @@ export default function Read() {
 					<Table.Row>
 						<Table.HeaderCell>ID</Table.HeaderCell>
 						<Table.HeaderCell>Catagory</Table.HeaderCell>
+						<Table.HeaderCell>PackageName</Table.HeaderCell>
+						<Table.HeaderCell>DedicatedIP</Table.HeaderCell>
 						<Table.HeaderCell>CPU</Table.HeaderCell>
 						<Table.HeaderCell>RAM</Table.HeaderCell>
-						<Table.HeaderCell>OS</Table.HeaderCell>
 						<Table.HeaderCell>Storage</Table.HeaderCell>
+						<Table.HeaderCell>Processor</Table.HeaderCell>
+						<Table.HeaderCell>Bandwidth</Table.HeaderCell>
+						<Table.HeaderCell>UpTime</Table.HeaderCell>
 						<Table.HeaderCell>Price</Table.HeaderCell>
 						<Table.HeaderCell>Update</Table.HeaderCell>
 						<Table.HeaderCell>Delete</Table.HeaderCell>
@@ -58,10 +87,14 @@ export default function Read() {
 							<Table.Row>
 								<Table.Cell>{data._id}</Table.Cell>
 								<Table.Cell>{data.category}</Table.Cell>
-								<Table.Cell>{data.processor}</Table.Cell>
+								<Table.Cell>{data.pacname}</Table.Cell>
+								<Table.Cell>{data.dedicatedIP}</Table.Cell>
+								<Table.Cell>{data.core}</Table.Cell>
 								<Table.Cell>{data.RAM}</Table.Cell>
-								<Table.Cell>{data.OS}</Table.Cell>
 								<Table.Cell>{data.diskspace}</Table.Cell>
+								<Table.Cell>{data.processor}</Table.Cell>
+								<Table.Cell>{data.bandwidth}</Table.Cell>
+								<Table.Cell>{data.uptime}</Table.Cell>
 								<Table.Cell>{data.price}</Table.Cell>
 								<Table.Cell>
 									<Link to="/admin/update">
@@ -71,10 +104,14 @@ export default function Read() {
 												setData(
 													data._id,
 													data.catagory,
-													data.processor,
+													data.pacname,
+													data.dedicatedIP,
+													data.core,
 													data.RAM,
-													data.OS,
 													data.diskspace,
+													data.processor,
+													data.bandwidth,
+													data.uptime,
 													data.price
 												)
 											}

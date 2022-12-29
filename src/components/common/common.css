@@ -46,7 +46,8 @@ body {
 #catagory,
 #banner,
 #about,
-#slider {
+#slider,
+#info {
 	background-color: var(--main-bg);
 	padding: 120px 0;
 }
@@ -555,6 +556,10 @@ body {
 .services:hover.serv-primary .para {
 	color: rgba(255, 255, 255, 0.5) !important;
 }
+.announce {
+	font-size: 20px;
+	color: red;
+}
 /* minecraft css end */
 
 /* client css start */
@@ -658,6 +663,12 @@ body {
 	background-color: rgb(255 255 255 / 47%);
 } */
 /* client css end */
+
+/* signup css start */
+.error {
+	color: red;
+}
+/* signup css end */
 
 /* Responsive design start */
 /* @media (min-width: 992px) and (max-width: 1199px) { */

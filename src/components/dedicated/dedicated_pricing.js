@@ -8,10 +8,10 @@ function DedicatedPricing() {
 	const [data, setData] = useState([]);
 
 	useEffect(() => {
-		Axios.get("103.191.240.74/api/dedicatedproduct/")
+		Axios.get("http://103.191.240.74/api/vpsproduct/")
 			// Axios.get("http://localhost:3000/api/dedicatedproduct/")
 			.then((res) => {
-				console.log("getting data from fake api :::", res.data);
+				console.log("getting data from api :::", res.data);
 				setData(res.data);
 			})
 			.catch((err) => console.log(err));

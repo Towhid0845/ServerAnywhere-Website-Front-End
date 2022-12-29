@@ -7,7 +7,7 @@ import VPS from "./components/vps/index";
 import Web from "./components/web/index";
 import Storage from "./components/storage";
 import UserReg from "./components/storage/usr-reg";
-import Plan from "./components/plan";
+import Plan from "./components/minecraft/plan";
 import RDP from "./components/rdp";
 import Signin from "./components/auth/signin";
 import Signup from "./components/auth/signup";
@@ -16,6 +16,7 @@ import AdminPage from "./components/admin";
 import Create from "./components/admin/create/create";
 import Update from "./components/admin/update/update";
 import EmailVerify from "./components/auth/EmailVerify";
+import Game from "./components/admin/game";
 // import Read from "./components/admin/read/read";
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
 					<Route exact path="/admin/create" element={<Create />}></Route>
 					<Route exact path="/admin/update" element={<Update />}></Route>
 					{/* <Route exact path="/admin/read" element={<Read />}></Route> */}
+					<Route exact path="/admin/game" element={<Game />}></Route>
 				</Routes>
 			</Router>
 		</>

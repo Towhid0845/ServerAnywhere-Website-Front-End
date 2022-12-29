@@ -45,13 +45,15 @@ const Login = () => {
 		//
 		Promise.all([
 			//active this api for local machine
-			axios.post("http://localhost:3000/api/user/signin", {
-				//active this api for server
-				// axios.post("http://103.191.240.74/api/user/signin", {
+			// axios.post("http://localhost:3000/api/user/signin", {
+			//active this api for server
+			// axios.post("http://103.191.240.74/api/user/signin", {
+			axios.post("http://test.serveranywhere.net/api/user/signin", {
 				email: email,
 				password: password,
 			}),
-			axios.post("http://103.191.240.74:81/api/guest/client/login", {
+			// axios.post("http://103.191.240.74:81/api/guest/client/login", {
+			axios.post("http://clients.serveranywhere.net/api/guest/client/login", {
 				email: email,
 				password: password,
 			}),
@@ -90,7 +92,8 @@ const Login = () => {
 					} else {
 						// navigate("/");
 						// navigate("http://103.191.240.74:81");
-						window.location.href = "http://103.191.240.74:81/cart";
+						// window.location.href = "http://103.191.240.74:81/order";
+						window.location.href = "http://clients.serveranywhere.net/order";
 					}
 
 					//navigate("/admin");

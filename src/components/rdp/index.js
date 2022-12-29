@@ -12,7 +12,7 @@ import BannerText from "./banner_text";
 // import VPSCompare from "./compare";
 import AboutRDP from "./about";
 import SliderRDP from "./slider";
-import PricingRDP from "./vps_pricing";
+import PricingRDP from "./rdp_pricing";
 
 export default function RDP() {
 	return (
@@ -25,13 +25,13 @@ export default function RDP() {
 			<About>
 				<AboutRDP />
 			</About>
-			{/* <VPSCompare /> */}
 			<Slider>
 				<SliderRDP />
 			</Slider>
 			<Support />
 			<Catagory />
 			<Footer />
+			{/* <VPSCompare /> */}
 		</div>
 	);
 }

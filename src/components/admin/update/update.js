@@ -2,10 +2,10 @@ import React from "react";
 import { useState, useEffect } from "react";
 // import { Button, Form } from "semantic-ui-react";
 import axios from "axios";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Update() {
-	// let navigate = useNavigate();
+	const navigate = useNavigate();
 	// const [Catagory, setCatagory] = useState("");
 	// const [CPU, setCpu] = useState("");
 	// const [RAM, setRam] = useState("");
@@ -28,32 +28,41 @@ export default function Update() {
 	// 		});
 	// };
 	const [values, setValues] = useState({
-		price: "",
 		categories: [],
 		category: "",
-		processor: "",
+		pacname: "",
+		dedicatedIP: "",
+		core: "",
 		RAM: "",
-		OS: "",
 		diskspace: "",
+		processor: "",
+		bandwidth: "",
+		uptime: "",
+		price: "",
 		formData: "",
 		disabled: false,
 	});
 
 	const {
-		price,
-		category,
 		categories,
-		processor,
+		category,
+		pacname,
+		dedicatedIP,
+		core,
 		RAM,
-		OS,
 		diskspace,
+		processor,
+		bandwidth,
+		uptime,
+		price,
 		formData,
 		disabled,
 	} = values;
 
 	useEffect(() => {
 		axios
-			.get("http://103.191.240.74/api/vpscategory")
+			// .get("http://103.191.240.74/api/vpscategory")
+			.get("http://test.serveranywhere.net/api/vpscategory")
 			.then((response) => {
 				setValues({
 					...values,
@@ -87,19 +96,26 @@ export default function Update() {
 		});
 
 		axios
-			.put(`http://103.191.240.74/api/vpsproduct/${ID}`, formData)
+			// .put(`http://103.191.240.74/api/vpsproduct/${ID}`, formData)
+			.put(`http://test.serveranywhere.net/api/vpsproduct/${ID}`, formData)
 			.then((response) => {
 				console.log(response.data);
 				setValues({
 					...values,
-					price,
 					category,
-					processor,
+					pacname,
+					dedicatedIP,
+					core,
 					RAM,
-					OS,
 					diskspace,
+					processor,
+					bandwidth,
+					uptime,
+					price,
 					disabled: false,
 				});
+				// window.location.href = "http://103.191.240.74:81/order";
+				navigate("/admin");
 			})
 			.catch((error) => {
 				let errMsg = "Something went wrong!";
@@ -198,67 +214,13 @@ export default function Update() {
 					style={{ width: 400, marginLeft: 200 }}
 				>
 					<div className="form-group">
-						<label className="text-muted">Price:</label>
-						<input
-							name="price"
-							onChange={handleChange}
-							type="number"
-							className="form-control"
-							value={price}
-							required
-						/>
-					</div>
-					<div className="form-group">
-						<label className="text-muted">Processor:</label>
-						<textarea
-							name="processor"
-							onChange={handleChange}
-							className="form-control"
-							value={processor}
-							required
-						/>
-					</div>
-					<div className="form-group">
-						<label className="text-muted">RAM:</label>
-						<input
-							name="RAM"
-							onChange={handleChange}
-							className="form-control"
-							type="text"
-							value={RAM}
-							required
-						/>
-					</div>
-					<div className="form-group">
-						<label className="text-muted">OS:</label>
-						<input
-							name="OS"
-							onChange={handleChange}
-							className="form-control"
-							type="text"
-							value={OS}
-							required
-						/>
-					</div>
-					<div className="form-group">
-						<label className="text-muted">DiskSpace:</label>
-						<input
-							name="diskspace"
-							onChange={handleChange}
-							className="form-control"
-							type="text"
-							value={diskspace}
-							required
-						/>
-					</div>
-					<div className="form-group">
 						<label className="text-muted">Category:</label>
 						<select
 							name="category"
 							value={category}
 							onChange={handleChange}
 							className="form-control"
-							required
+							// required
 						>
 							<option value="">----Select Category----</option>
 							{categories &&
@@ -268,6 +230,105 @@ export default function Update() {
 									</option>
 								))}
 						</select>
+					</div>
+					<div className="form-group">
+						<label className="text-muted">PackageName:</label>
+						<input
+							name="pacname"
+							onChange={handleChange}
+							type="text"
+							className="form-control"
+							value={pacname}
+							// required
+						/>
+					</div>
+					<div className="form-group">
+						<label className="text-muted">DedicatedIP:</label>
+						<input
+							name="dedicatedIP"
+							onChange={handleChange}
+							type="number"
+							className="form-control"
+							value={dedicatedIP}
+							// required
+						/>
+					</div>
+					<div className="form-group">
+						<label className="text-muted">CPU Core:</label>
+						<input
+							name="core"
+							onChange={handleChange}
+							className="form-control"
+							type="number"
+							value={core}
+							// required
+						/>
+					</div>
+					<div className="form-group">
+						<label className="text-muted">RAM:</label>
+						<input
+							name="RAM"
+							onChange={handleChange}
+							className="form-control"
+							type="number"
+							value={RAM}
+							// required
+						/>
+					</div>
+					<div className="form-group">
+						<label className="text-muted">DiskSpace:</label>
+						<input
+							name="diskspace"
+							onChange={handleChange}
+							className="form-control"
+							type="number"
+							value={diskspace}
+							// required
+						/>
+					</div>
+					<div className="form-group">
+						<label className="text-muted">Processor:</label>
+						<textarea
+							name="processor"
+							onChange={handleChange}
+							type="text"
+							className="form-control"
+							value={processor}
+							// required
+						/>
+					</div>
+					<div className="form-group">
+						<label className="text-muted">Bandwidth:</label>
+						<input
+							name="bandwidth"
+							onChange={handleChange}
+							className="form-control"
+							type="text"
+							value={bandwidth}
+							// required
+						/>
+					</div>
+					<div className="form-group">
+						<label className="text-muted">Up Time:</label>
+						<input
+							name="uptime"
+							onChange={handleChange}
+							className="form-control"
+							type="number"
+							value={uptime}
+							// required
+						/>
+					</div>
+					<div className="form-group">
+						<label className="text-muted">Price:</label>
+						<input
+							name="price"
+							onChange={handleChange}
+							type="number"
+							className="form-control"
+							value={price}
+							// required
+						/>
 					</div>
 					<button
 						className="btn btn-outline-primary"
