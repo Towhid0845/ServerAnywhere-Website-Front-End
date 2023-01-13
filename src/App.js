@@ -44,8 +44,8 @@ function App() {
 					<Route exact path="/admin" element={<AdminPage />}></Route>
 					<Route exact path="/admin/create" element={<Create />}></Route>
 					<Route exact path="/admin/update" element={<Update />}></Route>
-					{/* <Route exact path="/admin/read" element={<Read />}></Route> */}
 					<Route exact path="/admin/game" element={<Game />}></Route>
+					{/* <Route exact path="/admin/read" element={<Read />}></Route> */}
 				</Routes>
 			</Router>
 		</>

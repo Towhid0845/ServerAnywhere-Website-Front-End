@@ -5,11 +5,11 @@ import InputGroup from "react-bootstrap/InputGroup";
 import { Button } from "@mui/material";
 import { useState } from "react";
 // import { Link } from "react-router-dom";
-export default function Gameserver() {
-	// var port = 25570;
-	// var user = 1;
-	// var allocation = 8;
+var port = 8010;
+var user = 109;
+var allocation = 1000;
 
+export default function Gameserver() {
 	const initialValues = {
 		username: "",
 		first_name: "",
@@ -23,29 +23,35 @@ export default function Gameserver() {
 		setFormValues({ ...formValues, [name]: value });
 	};
 
-	const token = "ptla_MpmlLdSAgZL4wjfmuWaTqNGfVZZ2xEgY0RAxKkFPs2n";
+	const token = "ptla_AZJBhkEZtKfVwMEnHW84JmHHZ5oKSplOKO2QhGooxBl";
 	// const encodedToken = Buffer.from(token).toString("base64");
 	let axiosConfig = {
 		headers: {
-			// "Access-Control-Allow-Origin": "*",
-			"Access-Control-Allow-Headers": "*",
-			Accept: "application/json",
-			"Content-Type": "application/json",
+			//  "Access-Control-Allow-Origin": "*",
+			// "Access-Control-Allow-Headers": "*",
+			// "Accept": "application/json",
+			// "Content-Type": "application/json",
 			Authorization: "Bearer " + token,
 		},
-		token: {
-			pterodactyl_session:
-				"eyJpdiI6InhIVXp5ZE43WlMxUU1NQ1pyNWRFa1E9PSIsInZhbHVlIjoiQTNpcE9JV3FlcmZ6Ym9vS0dBTmxXMGtST2xyTFJvVEM5NWVWbVFJSnV6S1dwcTVGWHBhZzdjMHpkN0RNdDVkQiIsIm1hYyI6IjAxYTI5NDY1OWMzNDJlZWU2OTc3ZDYxYzIyMzlhZTFiYWY1ZjgwMjAwZjY3MDU4ZDYwMzhjOTRmYjMzNDliN2YifQ%3D%3D",
-		},
+		// },
+		// token: {
+		// 	pterodactyl_session:
+		// 		"eyJpdiI6InhIVXp5ZE43WlMxUU1NQ1pyNWRFa1E9PSIsInZhbHVlIjoiQTNpcE9JV3FlcmZ6Ym9vS0dBTmxXMGtST2xyTFJvVEM5NWVWbVFJSnV6S1dwcTVGWHBhZzdjMHpkN0RNdDVkQiIsIm1hYyI6IjAxYTI5NDY1OWMzNDJlZWU2OTc3ZDYxYzIyMzlhZTFiYWY1ZjgwMjAwZjY3MDU4ZDYwMzhjOTRmYjMzNDliN2YifQ%3D%3D",
+		// },
 	};
 	const postinfo = (e) => {
 		e.preventDefault();
 		console.log(formValues);
-		// Promise.all([
-		axios
-			.post(
+		port++;
+		user++;
+		allocation++;
+		console.log(port);
+		console.log(user);
+		console.log(allocation);
+		Promise.all([
+			axios.post(
 				//game server user creation
-				"http://103.191.240.110/api/application/users",
+				"https://test-panel.serveranywhere.net/api/application/users",
 				{
 					username: formValues.username,
 					first_name: formValues.first_name,
@@ -54,58 +60,28 @@ export default function Gameserver() {
 					password: formValues.password,
 				},
 				axiosConfig
-			)
-			// axios.post(
-			// 	//game server user creation in our DB
-			// 	"http://test.serveranywhere.net/api/gameuser/signup",
-			// 	{
-			// 		username: formValues.username,
-			// 		first_name: formValues.first_name,
-			// 		last_name: formValues.last_name,
-			// 		email: formValues.email,
-			// 		password: formValues.password,
-			// 	},
-			// 	axiosConfig
-			// ),
-			// axios.post(
-			// 	// game server allocation
-			// 	"http://103.191.240.110/api/application/nodes/1/allocations",
-			// 	{
-			// 		ip: "103.191.240.110",
-			// 		port: port,
-			// 	}
-			// 	// axiosConfig
-			// ),
-			// axios.post(
-			// 	// server creattion
-			// 	"http://103.191.240.110/api/application/servers",
-			// 	{
-			// 		username: "Building",
-			// 		user: user,
-			// 		egg: 1,
-			// 		docker_image: "quay.io/pterodactyl/core:java",
-			// 		startup: "java -Xms128M -XX:MaxRAMPercentage=95.0 -jar",
-			// 		environment: {
-			// 			BUNGEE_VERSION: "latest",
-			// 			SERVER_JARFILE: "server.jar",
-			// 		},
-			// 		limits: {
-			// 			memory: 128,
-			// 			swap: 0,
-			// 			disk: 512,
-			// 			io: 500,
-			// 			cpu: 0,
-			// 		},
-			// 		feature_limits: {
-			// 			databases: 5,
-			// 			backups: 1,
-			// 		},
-			// 		allocation: {
-			// 			default: allocation,
-			// 		},
-			// 	}
-			// 	// axiosConfig
-			// ),
+			),
+			// setTimeout(function() {
+			axios.post(
+				// game server allocation
+				"https://test-panel.serveranywhere.net/api/application/nodes/2/allocations",
+				{
+					ip: "103.191.240.110",
+					ports: [" " + port],
+				},
+				axiosConfig
+			),
+			// }, 5000),
+			axios.get(
+				// game server allocation
+				"https://test-panel.serveranywhere.net/api/application/nodes/2/allocations",
+				axiosConfig
+			),
+			// .then((res) => {
+			// 	const alloc = res.data.attributes.assigned;
+			// 	console.log(alloc);
+			// }),
+
 			// axios.post(
 			// 	// send mail to the user
 			// 	"http://103.191.240.74:81/api/admin/email/send",
@@ -119,16 +95,31 @@ export default function Gameserver() {
 			// 	}
 			// 	// axiosConfig
 			// ),
-			// ])
+		])
 			.then(
-				axios.spread((res1) => {
+				axios.spread((res1, res2, res3) => {
 					// axios.spread((res1, res2, res3, res4) => {
 					console.log(res1.data);
-					// console.log(res2.data);
+					console.log(res2.data);
 					// console.log(res3.data);
+					// console.log(res3.data.items[1]);
+					// const xy = temp.length;
+					// console.log(Object.keys(temp.data));
+					const temp = res3.data;
+					console.log(temp);
+					// const xy = Object.keys(temp.data).length;
+					// console.log(xy);
+					const temp3 = temp.meta.pagination.total - 1;
+					console.log(temp3);
+					console.log(temp.data[temp3]);
+					// const temp2 = temp.data[temp3].attributes.assigned;
+					// console.log(temp2);
+					// if (temp2 === false) {
+					// 	allocation = temp.data[temp3].attributes.id;
+					// 	console.log(allocation);
+					// 	alert("Success......");
+					// }
 					// console.log(res4.data);
-
-					alert("Success......");
 				})
 			)
 			.catch((error) => {
@@ -137,6 +128,50 @@ export default function Gameserver() {
 		// port++;
 		// user++;
 		// allocation++;
+	};
+	const serverinfo = (e) => {
+		e.preventDefault();
+		setTimeout(function() {
+			//your code to be executed after 1 second
+			axios
+				.post(
+					// server creattion
+					"https://test-panel.serveranywhere.net/api/application/servers",
+					{
+						name: "Building35",
+						user: user,
+						egg: 1,
+						docker_image: "ghcr.io/pterodactyl/yolks:java_17",
+						startup: "java -Xms128M -XX:MaxRAMPercentage=95.0 -jar",
+						environment: {
+							BUNGEE_VERSION: "latest",
+							SERVER_JARFILE: "bungeecord.jar",
+						},
+						limits: {
+							memory: 128,
+							swap: 0,
+							disk: 512,
+							io: 500,
+							cpu: 0,
+						},
+						feature_limits: {
+							databases: 5,
+							backups: 1,
+						},
+						// allocation: allocation,
+						allocation: {
+							default: allocation,
+						},
+					},
+					axiosConfig
+				)
+				.then((res) => {
+					console.log(res);
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		}, 5000);
 	};
 	return (
 		<div>
@@ -281,6 +316,16 @@ export default function Gameserver() {
 										type="submit"
 									>
 										Sign Up
+									</Button>
+									<br />
+									<br />
+									<Button
+										style={{ backgroundColor: "#f74545" }}
+										className="button-34 ps-5 pe-5 pt-2 pb-2"
+										onClick={serverinfo}
+										type="submit"
+									>
+										Create Server
 									</Button>
 								</div>
 							</form>

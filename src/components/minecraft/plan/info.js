@@ -1,8 +1,8 @@
 import React from "react";
-import { GrAnnounce } from "react-icons/gr";
+// import { GrAnnounce } from "react-icons/gr";
 
 export default function Info() {
-	let iconStyles = { color: "white" };
+	// let iconStyles = { color: "white" };
 	return (
 		<div id="info">
 			<div className="container">
@@ -53,18 +53,16 @@ export default function Info() {
 						<div className="small-title mb-3">Notice</div>
 						<div className="section-text">
 							<p className="pb-3">
-								<GrAnnounce style={iconStyles} /> Default port (Dedicated IP) is
-								additional 200 BDT/per month.
+								Default port (Dedicated IP) is additional 200 BDT/per month.
 							</p>
-							<p>
+							<p className="pb-3">
 								All the Basics plan includes 3 Backup Slots, 5 databases (on
 								demand) and custom ports with exclusive features!
 							</p>
-							<p>
+							<p className="pb-3">
 								We assured lag free and super blaze fast server with basics
-								plan!
+								plan! Trial server can be offered.
 							</p>
-							<p>Trial server can be offered.</p>
 							<p>Message us for any further information.</p>
 						</div>
 					</div>
